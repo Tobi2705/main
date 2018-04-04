@@ -1,0 +1,74 @@
+extends layout
+
+block content
+  navbar.navheader 
+    h1.logo &#x2604 Comet Jobs
+      a(href='/') 
+    ul.main-nav 
+      li.join 
+        a.button Join our community
+      li.postajob 
+        a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+  section.content 
+
+ 
+  div.header 
+    div.textbox
+      h1 Be part of the sports revolution
+      h2 Find tech and startup jobs in the sports industry
+    div.animation
+      .headerimage
+  navbar.nav
+    .card
+      div.cover 
+       button All Jobs
+    .card
+      div.cover 
+       button Virtual Reality
+   
+    .card
+      div.cover 
+       button Data Science
+    .card
+      div.cover 
+       button Web Development
+    .card
+      div.cover 
+       button Design 
+    .card
+      div.cover 
+       button Business Development
+    .card
+      div.cover 
+       button Sales
+    //- .card
+    //-   div.cover 
+    //-    button Remote Jobs
+
+  section.jobpostvr
+    
+    .content
+      input.field(placeholder="Your Email")
+      button.subscribe Subscribe to Newsletter
+   
+    h1 Recent jobs
+   
+    each post in data
+      table.joblist
+          tr
+            td
+              p.position= post['position']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td 
+              a(href='http://localhost:3000/' + post['slug']).button.info Get more Info 
+           
+           
+      
+
+   
+

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  navbar.navheader 
+    h1.logo
+      a(href='/') SportTech
+    ul.main-nav 
+      li.postajob 
+        a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+  section.jobinformation 
+    each post in data
+    
+        .jobdetails
+            h1=post['position']
+
+            p.location=post['company']
+           
+        p.location=post['location']
+        p.description=post['description'] 
+        p=post['email']
+        
+        a(href=post['link']).button.apply Apply for this job
+
+        
+      
+
