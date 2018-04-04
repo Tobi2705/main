@@ -11,6 +11,11 @@ var postSchema = new mongoose.Schema({
     data: Buffer,
     contentType: String
   },
+  company: {
+    type: String,
+    trim: true,
+    required: true
+  },
   location: {
     type: String,
     trim: true,

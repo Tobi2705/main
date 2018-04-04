@@ -19,16 +19,14 @@ MongoClient.connect(url, function (err, db) {
 };
 
 exports.jobInfo = (req, res) => {
-    const jobSlug = req.params.slug;
-    var query = posts.findOne({
-      slug: jobSlug
-    })
-    query.exec(function (err, job) {
-      if (err) return handleError(err);
-      return res.render('jobInfo', {
-        data: [job]
-      });
-    })
-    };
-
-    
+  const jobSlug = req.params.slug;
+  var query = posts.findOne({
+    slug: jobSlug
+  })
+  query.exec(function (err, job) {
+    if (err) return handleError(err);
+    return res.render('jobInfo', {
+      data: [job]
+    });
+  })
+};
