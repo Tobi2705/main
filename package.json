@@ -9,26 +9,26 @@
     "start": "concurrently \"npm run watch\" --names \"💻,📦\" --prefix name"
   },
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^2.6.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
-    "cookie-parser": "^1.4.3",
+    "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^5.0.1",
     "express": "^4.16.4",
     "express-sitemap": "^1.8.0",
-    "http-errors": "^1.7.1",
+    "http-errors": "^1.7.2",
     "lodash": "^4.17.11",
-    "moment": "^2.22.2",
+    "moment": "^2.24.0",
     "mongodb": "^2.2.36",
-    "mongoose": "^5.3.15",
+    "mongoose": "^5.4.22",
     "mongoose-slug-generator": "^1.0.4",
     "morgan": "^1.9.1",
-    "osmosis": "^1.1.8",
+    "osmosis": "^1.1.10",
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.10"
   }
 }
