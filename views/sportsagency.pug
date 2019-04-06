@@ -1,0 +1,93 @@
+extends layout
+
+block content
+  navbar.navheader 
+    .logotext
+      a.logo(href='/') <span>Sportek</span> 
+      h1.logo_job jobs
+    ul.main-nav 
+      li.twitter
+        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+      li.join 
+        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
+      li.join 
+        a.button(href='/sportsjobs-internships') Internships
+      //- li.join 
+      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+      li.join 
+        a.button(href='/companies') Companies
+      li.join 
+        a.button(href='/sportsjobs-collections') Collections
+      
+      li.postajob
+        a.button(href='/hire') Post a Job
+        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+        //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+      
+        
+  section.content
+  
+  
+
+  section.jobpostvr
+    .content
+        //- form#mc-embedded-subscribe-form.validate(action='https://madewithoutcode.us11.list-manage.com/subscribe/post?u=d5f79e612360b9aa4a718ca19&amp;id=36c3826fbe', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+        //-   #mc_embed_signup_scroll
+        //-     input#mce-EMAIL.field(type='email', value='', name='EMAIL', placeholder='email address', required='')
+        //-     div(style='position: absolute; left: -5000px;', aria-hidden='true')
+        //-       input(type='text', name='b_d5f79e612360b9aa4a718ca19_36c3826fbe', tabindex='-1', value='')
+        //-     .clear
+        //-       input#subscribe.button(type='submit', value='Subscribe to our Newsletter', name='subscribe')
+   
+    .advertiser
+      p Hire the best tech players for your company 
+      //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+      a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+    .newsletter-box
+      h1 Get a weekly email with new jobs
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Subscribe to Newsletter', name='member[subscribe]')
+    h2 Jobs at Sports Agencies
+    each post in paid || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+               
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info Get more Info
+    //- h2 Recent Jobs
+    each post in data || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            
+            td
+               p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info Get more Info
+    a#morejobs(href='/') Back to all jobs &#x1F449
+    

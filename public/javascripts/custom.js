@@ -1,22 +1,44 @@
- // JavaScript
- const createCube = () => {
-    const template = document.getElementById("cube-template");
-    const fragment = document.importNode(template.content, true);
-    return fragment;
-    }
-    const getDistance = (state, rotate) =>
-    ["x", "y"].reduce((object, axis) => {
-      object[axis] = Math.abs(state[axis] + rotate[axis]);
-      return object;
-    }, {});
-  
-  const getRotation = (state, size, rotate) => {
-    const axis = rotate.x ? "Z" : "Y";
-    const direction = rotate.x > 0 ? -1 : 1;
-  
-    return `
-      rotateX(${state.x + rotate.x}deg)
-      rotate${axis}(${direction * (state.y + rotate.y)}deg)
-      translateZ(${size / 2}px)
-    `;
-  };
+window.onload=function(){
+  // $('.remote-jobs').css('display', 'none');
+  function renderTable(job) {
+    return (
+      `<tr>
+        <td>
+          <p class="position">${job.position}</p>
+          <p class="company">${job.company}</p>
+        </td>
+        <td>
+          <div class="tags">
+            <ul id="tagslist">
+              <p>${job.tags}</p>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <p class="location">${job.location}</p>
+          <p class="location">${job.date}</p>
+        </td>
+        <td> <a href="https://sportekjobs.com/${job.slug}" class="button info">Get more Info </a></td>
+      </tr>`
+    )
+  }
+
+  document.getElementById("remote").addEventListener("click", function(event){
+   event.preventDefault();
+   $('.all-jobs').css('display', 'none');
+   //$('.remote-jobs').css('display', 'block');
+    axios
+                .get('http://localhost:3000/virtual-reality-jobs')
+                .then(function (res) {
+                    var jobs = res.data.data;
+                    jobs.forEach(job => {
+                      document.getElementById("remote-jobs").innerHTML += renderTable(job);
+                    });
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  }); 
+  }, {once: true});
+  }
+
+       

@@ -1,0 +1,52 @@
+extends layout
+block content
+  navbar.navheader 
+    .logotext
+      a.logo(href='/') <span>Sportek</span> 
+      h1.logo_job jobs
+    ul.main-nav 
+      li.twitter
+        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+      li.join 
+        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
+      li.join 
+        a.button(href='/sportsjobs-internships') Internships
+      //- li.join 
+      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+      li.join 
+        a.button(href='/sports-companies') Companies
+      li.join 
+        a.button(href='/sportsjobs-collections') Collections
+      li.postajob 
+        a.button(href='/hire') Post a Job
+  section.companyinfo
+    each post in data || []
+      h1= post['copmany'] 
+      div.companybox
+        .companydescription 
+          p= post.companydescription
+        .companylinks
+          p &#x1F4CD #{post.location}
+          a(href=post['companylink']) &#x1F310 Company Website
+        
+      div.jobcontainer
+        h1 Latest Job at #{post.company}
+        table.joblist.all-jobs#joblist
+            tr
+              td
+                p.position= post['position'] 
+                p.company= post['company']
+              td
+                div.tags  
+                ul#tagslist
+                  p= post['tags']
+              td
+                p.location= post['location']
+              
+              td#datecell
+                p#date #{moment(post['date']).startOf('day').fromNow()}
+              td 
+                a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+        
+        
+  

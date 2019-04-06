@@ -1,10 +1,51 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700', rel='stylesheet')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='description' content='Do you want to find jobs in Sportstech? SportekJobs is the first job board for tech and startup jobs with the focus on the sports industry. Find jobs as Sports Analyst, Web Developer, Data Scientist, Designer, Product Manager, Business Developer, Sales and Marketing Manager.')
+    meta(property='og:url' content='https://sportekjobs.com')
+    meta(property='og:type' content='website')
+    meta(property='og:title' content='A jobboard for tech and startup jobs in the sports industry to find jobs as Sports Analyst, Web Developer, Data Scientist, Designer, Product Manager, Business Developer, Sales and Marketing Manager.')
+    meta(property='og:description' content='We are building the #1 job board for the sports industry to find and post tech and startup jobs as Sports Analyst, Web Developer, Data Scientist, Designer, Product Manager, Business Developer, Sales and Marketing Manager.')
+    meta(property='og:image' content='https://sportekjobs.com/images/smimage.png')
+
+    meta(name='twitter:card' content='summary')
+    meta(name='twitter:site' content='@sportekjobs')
+    meta(name='twitter:title' content='Sportekjobs')
+    meta(name='twitter:creator' content='@sportekjobs')
+    meta(name='twitter:description' content='We are building the #1 job board for the sports industry to find and post tech and startup jobs as Sports Analyst, Web Developer, Data Scientist, Designer, Product Manager, Business Developer, Sales and Marketing Manager.')
+    meta(name='twitter:image:src' content='https://sportekjobs.com/images/smimage.png')
+    meta(name='twitter:card' content='summary_large_image')
+    title Sportekjobs - Tech and StartUp Jobs in the Sports Industry
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/mobile.css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700|Permanent+Marker' rel='stylesheet')
+    link(rel='shortcut icon' href='/images/favicon.ico' type='image/x-icon')
+    script(src='https://cdn.jsdelivr.net/npm/typeit@5.10.6/dist/typeit.min.js')
+    script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-24727257-9')
+    script(src='https://cdn.ckeditor.com/4.11.2/standard-all/ckeditor.js')
+    
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-24727257-9');
+    
+
     script(src='https://embed.small.chat/T0BMKKFJRG50TFGKSR.js', async='')
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
     script(src='/javascripts/custom.js')
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=254612694936452&autoLogAppEvents=1";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    //twitter
+    script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')
   body
     block content

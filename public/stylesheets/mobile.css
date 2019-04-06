@@ -1,0 +1,481 @@
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+/* ----------- iPhone 6, 7 and 8 ----------- */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+    body,
+    nav,
+    ul,
+    li,
+    a {
+        margin: 2;
+        padding: 0;
+    }
+    .navheader {
+        margin-right: 0px;
+        margin-left: 0px;
+        right: 0;
+    }
+    #subscribe {
+        padding: 8px 8px 8px 8px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .logo {
+        font-size: 1.25em;
+        padding-right: 2px;
+        padding-top: 5px;
+    }
+    .logo_job {
+        padding-top: 5px;
+        font-size: 1.25em;
+    }
+    .postajob>.button {
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        background: palevioletred;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    .textbox>h1 {
+        font-size: 24px;
+    }
+    .textbox>h2 {
+        font-size: 18px;
+    }
+    .join>.button {
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .header {
+        margin: 0px;
+    }
+    .headerimage {
+        background: none;
+        width: 0px;
+        height: 0px;
+    }
+    .textbox {
+        padding-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+    }
+    .jobpostvr {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .jobpostvr>h1 {
+        font-size: 14px;
+    }
+    .card>.cover {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .location {
+        padding-left: 30px;
+        padding-right 30px;
+    }
+    td {
+        padding-bottom: 30px;
+        padding-right: 2px;
+    }
+    .field {
+        padding: 0px;
+        border: 1px solid rgb(240, 237, 227);
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .description {
+        text-align: justify;
+    }
+    a#nav-items>img {
+        display: none;
+    }
+    a#nav-items {
+        padding-right: 7px;
+        padding-bottom: 10px;
+        font-size: 12px;
+        border: 0.1em solid #f5f5f5;
+        margin: 6px;
+    }
+    li.twitter {
+        display: none;
+    }
+    .advertiser {
+        display: none;
+    }
+    .company {
+        font-size: 14px;
+    }
+    .location {
+        font-size: 12px;
+    }
+    #date {
+        font-size: 12px;
+        float: right;
+    }
+    .info {
+        font-size: 12px;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    body,
+    nav,
+    ul,
+    li,
+    a {
+        margin: 2;
+        padding: 0;
+    }
+    .navheader {
+        margin-right: 0px;
+        margin-left: 0px;
+        right: 0;
+    }
+    #subscribe {
+        padding: 8px 8px 8px 8px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+        font-size: 10px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .logo {
+        font-size: 1.25em;
+        padding-right: 2px;
+        padding-top: 5px;
+    }
+    .logo_job {
+        padding-top: 5px;
+        font-size: 1.25em;
+    }
+    .postajob>.button {
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        background: palevioletred;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    .textbox>h1 {
+        font-size: 24px;
+    }
+    .textbox>h2 {
+        font-size: 18px;
+    }
+    .join>.button {
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .header {
+        margin: 0px;
+    }
+    .headerimage {
+        background: none;
+        width: 0px;
+        height: 0px;
+    }
+    .textbox {
+        padding-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+    }
+    .jobpostvr {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .jobpostvr>h1 {
+        font-size: 14px;
+    }
+    .card>.cover {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .location {
+        padding-left: 30px;
+        padding-right 30px;
+    }
+    td {
+        padding-bottom: 30px;
+        padding-right: 2px;
+    }
+    .field {
+        padding: 0px;
+        border: 1px solid rgb(240, 237, 227);
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .description {
+        text-align: justify;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .navheader {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .header {
+        margin: 40px;
+    }
+    .headerimage {
+        width: 320px;
+        height: 220px;
+    }
+    .textbox {
+        padding-top: 0px;
+    }
+    .textbox>h1 {
+        font-size: 30px;
+    }
+    .textbox>h2 {
+        font-size: 24px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 5px;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+        margin: 10px;
+        margin-bottom: 10px;
+    }
+    .card>.cover {
+        height: 50px;
+    }
+    .jobinformation {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+    body,
+    nav,
+    ul,
+    li,
+    a {
+        margin: 2;
+        padding: 0;
+    }
+    .navheader {
+        margin-right: 0px;
+        margin-left: 0px;
+        right: 0;
+    }
+    #subscribe {
+        padding: 8px 8px 8px 8px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .logo {
+        font-size: 1.25em;
+        padding-right: 2px;
+        padding-top: 5px;
+    }
+    .logo_job {
+        padding-top: 5px;
+        font-size: 1.25em;
+    }
+    .postajob>.button {
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        background: palevioletred;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    .textbox>h1 {
+        font-size: 24px;
+    }
+    .textbox>h2 {
+        font-size: 18px;
+    }
+    .join>.button {
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .header {
+        margin: 0px;
+    }
+    .headerimage {
+        background: none;
+        width: 0px;
+        height: 0px;
+    }
+    .textbox {
+        padding-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+    }
+    .jobpostvr {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .jobpostvr>h1 {
+        font-size: 14px;
+    }
+    .card>.cover {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .location {
+        padding-left: 30px;
+        padding-right 30px;
+    }
+    td {
+        padding-bottom: 30px;
+        padding-right: 2px;
+    }
+    .field {
+        padding: 0px;
+        border: 1px solid rgb(240, 237, 227);
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .description {
+        text-align: justify;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    }
+}
+
+/* ----------- Non-Retina Screens ----------- */
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {}
+
+/* ----------- Retina Screens ----------- */
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}
+
+/* Galaxy S5 portrait and landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {}
+
+/* Galaxy S5 portrait */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+/* Galaxy S5 landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {}

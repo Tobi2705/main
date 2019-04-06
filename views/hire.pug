@@ -1,0 +1,235 @@
+extends layout
+
+block content
+  navbar.navheader 
+    .logotext
+      a.logo(href='/') <span>Sportek</span> 
+      h1.logo_job jobs
+      a(href='/') 
+    ul.main-nav 
+      li.twitter
+        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+      
+      li.join 
+        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
+      //- li.join 
+      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+      li.join 
+        a.button(href='/companies') Companies
+      li.join 
+        a.button(href='/sportsjobs-collections') Collections
+      
+ 
+  section.job_content
+
+    .jobform
+      .submissionform
+        div.trust
+          p Hey ✌️, 
+          | welcome to SportekJobs - a job board for tech and start up jobs in the sports industry. Share your job post with thouthands of job seekers who want to be part of the sports revolution.
+        
+          p#center Trusted by some of the best companies in sports:
+          div.companies__customers
+            a(href="https://www.flairfootball.com/" target="_blank")
+              img(src='../images/flair.png')
+            a(href="https://en.psg.fr/" target="_blank")
+              img(src='../images/paris.png')
+            a(href="https://foundersfactory.com/" target="_blank")
+              img(src='../images/ffactory.png')
+        h2 Job Post
+        form#jobForm(action="/addjob", method="post")             
+                    label Position
+                    input(type='text' name='position')
+                    label Company Name
+                    input(type='text' name='company')
+                    label Location
+                    input(type='text' name='location')
+                    
+                    label Twitter Handler
+                    input(type='text'  name='twitter')
+                    label Facebook Profile
+                    input(type='text'  name='facebook')
+                    label Area of Work
+                    select(name='areaofwork')
+                      option(value='eSports') eSports
+                      option(value='SportsAgency') SportsAgency
+                      option(value='SportsAnalytics') SportsAnalytics
+                      option(value='SportsHardware') SportsHardware
+                      
+                      option(value='SportsAgency') SportsAgency
+                      option(value='SportsConsulting') SportsConsulting
+                      option(value='SportsSoftware') SportsSoftware
+                      option(value='FitnessSoftware') FitnessSoftware
+                      option(value='FitnessHardware') FitnessHardware
+                      option(value='VirtualReality') VirtualReality
+                      option(value='AugmentedReality') AugmentedReality
+                      option(value='CommunityPlatform') CommunityPlatform
+                      option(value='TVandStreaming') TVandStreaming
+                      option(value='Bicycle') Bicycle
+                      option(value='Football') Football
+                      option(value='Soccer') Soccer
+                      option(value='Golf') Golf
+                      option(value='Cricket') Cricket
+                      option(value='Basketball') Basketball
+                      option(value='Baseball') Baseball
+                      option(value='Journalism') Journalism
+                      option(value='Skateboard') Skateboard
+                      option(value='Scooter') Scooter
+                      option(value='Surfing') Surfing
+                      option(value='Tennis') Tennis
+                      option(value='Squash') Squash
+                      option(value='Fitness') Fitness
+                      option(value='Hockey') Hockey
+                      option(value='Motorsport') Motorsport
+                      option(value='FantasySports') FantasySports
+                    label Job Type
+                    select(name='jobtype')
+                      option(value='Full Time') Full Time
+                      option(value='Part Time') Part Time
+                      option(value='Internship') Internship
+                    label Job Category
+                    select(name='tags')
+                      option(value='VirtualReality') VirtualReality
+                      option(value='Design') Design
+                      option(value='WebDevelopment') WebDevelopment
+                      option(value='BusinessDevelopment') BusinessDevelopment
+                      option(value='Marketing') Marketing
+                      option(value='Sales') Sales
+                      option(value='ProductManagement') ProductManagement
+                      option(value='DataScience') DataScience
+                      option(value='MachineLearning') MachineLearning
+                      option(value='PeopleOperations') PeopleOperations
+                      option(value='Other') Other
+                    label Company Description
+                    textarea(rows='4', cols='50', id='editor1' name='copmanydescription') Enter text here...
+                    label Job Description
+                    textarea(rows='4', cols='50', id='editor2' name='description') Enter text here...
+                    label Expected Salary
+                    input(type='text'  name='salary')
+                    label Website of the company
+                    input(type='text'  name='companylink')
+                    label Apply Url or Email
+                    input(type='text'  name='link')
+                    input#checkbox(type='checkbox', name='paid', value='true', checked='')
+
+                    //- div.checkbox__field
+                    //-     p Free Version?
+                    //-     div.checkbox
+                    //-         input(type='checkbox' name='free' value='true')    
+                    input.button#checkout-button(type='submit' value='Post Job for 29$')
+      #error-message
+
+        //- .typeform-widget(data-url='https://toomai.typeform.com/to/VnpRAv', data-transparency='50', data-hide-headers='true', style='width: 100%; height: 500px;')
+        //- script.
+        //-   (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
+        //- div(style='font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;')
+        //-   | powered by 
+        //-   a(href='https://admin.typeform.com/signup?utm_campaign=VnpRAv&utm_source=typeform.com-923-Pro&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN', style='color: #999', target='_blank') Typeform    
+    //- .submissionexplainer
+    //-   div.trust
+    //-    p Trusted by the best sports companies:
+    //-    p
+    //-     img(src='../images/companies.png')
+    //-   h1 Job Post package
+    //-   div.list
+    //-    p Highlighted <br><span>job ad 🔥</span> <br>on landing page 
+    //-    p Featured on our<br><span>Twitter + Facebook 📢</span> <br>channels 
+    //-    p Reach <br><span>1000 + 🗺</span> <br> tech workers around the world 
+    //-    p My dog <br><span>Fallu 🐕</span> <br> gets his favourite food 
+    
+    script.
+            CKEDITOR.replace('editor1', {
+             toolbarGroups: [{
+                    "name": "basicstyles",
+                    "groups": ["basicstyles"]
+                  },
+                  {
+                    "name": "links",
+                    "groups": ["links"]
+                  },
+                  {
+                    "name": "paragraph",
+                    "groups": ["list", "blocks"]
+                  },
+                  {
+                    "name": "document",
+                    "groups": ["mode"]
+                  },
+                  {
+                    "name": "insert",
+                    "groups": ["insert"]
+                  },
+                  {
+                    "name": "styles",
+                    "groups": ["styles"]
+                  },
+                  {
+                    "name": "about",
+                    "groups": ["about"]
+                  }
+                ],
+                // Remove the redundant buttons from toolbar groups defined above.
+                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
+              });
+
+            CKEDITOR.replace('editor2', {
+             toolbarGroups: [{
+                    "name": "basicstyles",
+                    "groups": ["basicstyles"]
+                  },
+                  {
+                    "name": "links",
+                    "groups": ["links"]
+                  },
+                  {
+                    "name": "paragraph",
+                    "groups": ["list", "blocks"]
+                  },
+                  {
+                    "name": "document",
+                    "groups": ["mode"]
+                  },
+                  {
+                    "name": "insert",
+                    "groups": ["insert"]
+                  },
+                  {
+                    "name": "styles",
+                    "groups": ["styles"]
+                  },
+                  {
+                    "name": "about",
+                    "groups": ["about"]
+                  }
+                ],
+                // Remove the redundant buttons from toolbar groups defined above.
+                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
+              });
+    script(src='https://js.stripe.com/v3')
+
+  #error-message
+  script.
+    var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3', {
+    betas: ['checkout_beta_4']
+    });
+    var checkoutButton = document.getElementById('checkout-button');
+    checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+    items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
+    // Note that it is not guaranteed your customers will be redirected to this
+    // URL *100%* of the time, it's possible that they could e.g. close the
+    // tab between form submission and the redirect.
+    successUrl: 'https://sportekjobs.com/success',
+    cancelUrl: 'https://sportekjobs.com/success',
+    })
+    .then(function (result) {
+    if (result.error) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer.
+    var displayError = document.getElementById('error-message');
+    displayError.textContent = result.error.message;
+    }
+    });
+    });

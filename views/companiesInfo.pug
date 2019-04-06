@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  navbar.navheader 
+    .logotext
+      a.logo(href='/') <span>Sportek</span> 
+      h1.logo_job jobs
+    ul.main-nav 
+      li.twitter
+        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+      li.join 
+        a.button(href='/remote-jobs') Remote Jobs 
+      li.join 
+        a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+      li.join 
+        a.button(href='/companies') Companies
+      li.postajob 
+        a.button(href='/hire') Post a Job
+        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+  section.content
+    h1 Companies and Start Ups in the sports industry
+
+  section.companieslist
+    each post in data
+      table.complist
+          tr#company
+            td
+              //- p.company= post['_id']
+              //- p.openings #{post.total_listings} &nbsp; active job openings
+            td#companytags
+              div.tags 
+              - var tags = post.uniqueTags
+              each tag in tags
+               ul#tagslist
+                p= tag
+            td
+              p.company= post['descr']
+                
+
+               
+    

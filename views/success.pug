@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    navbar.navheader 
+        .logotext
+            a.logo(href='/') <span>Sportek</span> 
+            h1.logo_job jobs
+            a(href='/') 
+        ul.main-nav 
+            li.twitter
+                a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+            
+            li.join 
+                a.button(href='/remote-jobs') Remote Jobs 
+            li.join 
+                a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+            li.join 
+                a.button(href='/companies') Companies
+    
+    section.jobinformation 
+        div.textbox__left
+            h2 Thanks for adding your job to Sportekjobs.
+            p It should be listed soon on our website. If you running into troubles please send me a message on Twitter or send me an Email.
+            a.button(href='https://twitter.com/toomaime') Twitter
+            a.button(href='hi@toomai.me') Email

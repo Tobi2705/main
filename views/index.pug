@@ -1,74 +1,531 @@
 extends layout
+include mixins/_navbar.pug 
 
 block content
-  navbar.navheader 
-    h1.logo &#x2604 Comet Jobs
-      a(href='/') 
-    ul.main-nav 
-      li.join 
-        a.button Join our community
-      li.postajob 
-        a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
-  section.content 
-
- 
+  +_navbar 
+        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+        //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+    
+  section.content
+  
   div.header 
     div.textbox
-      h1 Be part of the sports revolution
-      h2 Find tech and startup jobs in the sports industry
+      h1 Be part of the sports revolution.
+      h2 <span>Sportekjobs</span> is the job board for the sports industry.<br> If you want to find or list tech and start up jobs in sports - this is for you!
+      h2 &#x1F525 New openings at <span id='example1'> </span>
+       
     div.animation
       .headerimage
-  navbar.nav
-    .card
-      div.cover 
-       button All Jobs
-    .card
-      div.cover 
-       button Virtual Reality
-   
-    .card
-      div.cover 
-       button Data Science
-    .card
-      div.cover 
-       button Web Development
-    .card
-      div.cover 
-       button Design 
-    .card
-      div.cover 
-       button Business Development
-    .card
-      div.cover 
-       button Sales
-    //- .card
-    //-   div.cover 
-    //-    button Remote Jobs
-
   section.jobpostvr
-    
     .content
-      input.field(placeholder="Your Email")
-      button.subscribe Subscribe to Newsletter
-   
-    h1 Recent jobs
-   
-    each post in data
+       
+    .advertiser_testimonials
+      div.hire_claimer
+        p Trusted by start ups and leading companies from the sports industry 
+        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+        //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+      div.textbox_testimonials
+        img(src='../images/companies.png')
+    .newsletter-box
+      h1 Get a weekly email with new jobs
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Subscribe to Newsletter', name='member[subscribe]')
+    //- h2 test
+    //- each post in apidata || []
+    //-   table.joblist#paidjobs
+    //-       tr
+    //-         td
+    //-           p.position= post['position'] 
+    //-           p.company= post['company']
+    //-         td
+    //-           div.tags  
+    //-            ul#tagslist
+    //-             p= post['tags']
+    //-         td
+    //-           p.location= post['location']
+    //-         td#datecell
+    //-           p#date #{moment(post['date']).startOf('day').fromNow()}
+               
+    //-         td 
+    //-           a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- .advertiser_testimonials
+    //-   div.hire_claimer
+    //-       h1(style='color: red') We are having some database problems - we are working hard to fix the problem! 
+    h2 Recent Jobs
+    each post in data || []
       table.joblist
           tr
             td
-              p.position= post['position']
+              p.position= post['position'] 
+              p.company= post['company']
             td
               div.tags  
                ul#tagslist
                 p= post['tags']
             td
               p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+               
             td 
-              a(href='http://localhost:3000/' + post['slug']).button.info Get more Info 
-           
-           
-      
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    .advertiser
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new jobs sent to you', name='member[subscribe]')
+    
 
-   
+    h2 Web Development Jobs
+    each post in paid_web || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+               
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_web || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            
+            td#datecell
+               p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    a#morejobs(href='/sportsjobs-web-development-jobs') See all Web Development jobs &#x1F449
+    .advertiser
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new jobs sent to you', name='member[subscribe]')
+    
 
+    
+
+    h2 Virtual Reality Jobs
+    each post in paid_vr || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+               
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info Get more Info
+    //- h2 Recent Jobs
+    each post in data_vr || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            
+            td#datecell
+               p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    a#morejobs(href='/sportsjobs-virtual-reality-jobs') See all VR jobs &#x1F449
+    .advertiser
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new jobs sent to you', name='member[subscribe]')
+    
+
+    h2 Data Science Jobs    
+    each post in paid_ds || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_ds || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+              
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info       
+    div.morejobs
+      a(href='/sportsjobs-data-science-jobs') See all Data Science jobs &#x1F449
+    .advertiser
+      p Hire the best tech players for your company 
+      //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+      a.button(href='/hire', target='_blank') Post a Job
+
+    h2 Business Development Jobs    
+    each post in paid_bs || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_bs || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+              
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info   
+    div.morejobs
+      a(href='/sportsjobs-business-development-jobs') See all Business Development jobs &#x1F449
+
+    h2 Machine Learning Jobs    
+    each post in paid_ml || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_ml || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+             
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info                     
+    div.morejobs
+      a(href='/sportsjobs-machine-learning-jobs') See all Machine Learning jobs &#x1F449
+    .advertiser
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new jobs sent to you', name='member[subscribe]')
+    h2 Product Management Jobs    
+    each post in paid_pm || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_pm || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+             
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info                     
+    div.morejobs
+      a(href='/sportsjobs-product-management-jobs') See all Product Management jobs &#x1F449
+    h2 Design Jobs    
+    each post in paid_des || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    //- h2 Recent Jobs
+    each post in data_des || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+             
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info                     
+    div.morejobs
+      a(href='/sportsjobs-design-jobs') See all Design jobs &#x1F449
+    .advertiser
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new jobs sent to you', name='member[subscribe]')
+    h2 Marketing Jobs    
+    each post in paid_mar || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    each post in data_mar || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+              
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info                     
+    div.morejobs
+      a(href='/sportsjobs-marketing-jobs') See all Marketing jobs &#x1F449
+    h2 Sales Jobs    
+    each post in paid_sal || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    each post in data_sal || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+             
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    div.morejobs
+      a(href='/sportsjobs-sales-jobs') See all Sales jobs &#x1F449
+    .advertiser
+      p Hire the best tech players for your company 
+      //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+      a.button(href='/hire', target='_blank') Post a Job
+
+    h2 People Operations    
+    each post in paid_po || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()} 
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
+    each post in data_po || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+              
+            td#datecell
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info More Info 
+    div.morejobs
+      a(href='/sportsjobs-people-operations-jobs') See all People Operations jobs &#x1F449
+    table.joblist#remote-jobs
+    include mixins/_madeby.pug
+    include mixins/_footer.pug 
+  script.
+      (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typeform", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
+  script.
+      new TypeIt('#example1', {
+        speed: 80,
+        autoStart: true
+        })
+        .type('HUDL as Senior SQL Developer')
+        .pause(500)
+        .delete()
+        .type('Mobcrush as Product Manager')
+        .pause(500)
+        .delete()
+        .type('Hitwicket as Product Manager')
+        .pause(500)
+        .delete()
+        .type('Twitch as Technical Business Developer')
+        .pause(500)
+        .delete()
+        .type('KINDCUT as UI/UX Designer')            
