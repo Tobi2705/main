@@ -2,39 +2,41 @@ extends layout
 include mixins/_navbar.pug 
 
 block content
-  +_navbar 
+  //- +_navbar 
         //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
         //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
-    
-  section.content
-  
   div.header 
     div.textbox
-      h1 Be part of the sports revolution.
-      h2 <span>Sportekjobs</span> is the job board for the sports industry.<br> If you want to find or list tech and start up jobs in sports - this is for you!
-      h2 &#x1F525 New openings at <span id='example1'> </span>
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        //- h2 <span>Sportekjobs</span> is the job board for the sports industry.<br> If you want to find or list tech and start up jobs in sports - this is for you!
+        //- h2 &#x1F525 New openings at <span id='example1'> </span>
+        h2 Find tech and startup jobs in sports.
        
-    div.animation
-      .headerimage
-  section.jobpostvr
+    //- div.animation
+    //-   .headerimage
+    
+  div.jobpostvr
+  
     .content
        
-    .advertiser_testimonials
-      div.textbox_testimonials
-        img(src='../images/companies.png')
-      div.hire_claimer
-        p Trusted by start ups and leading companies from the sports industry 
+    //- .advertiser_testimonials
+    //-   div.textbox_testimonials
+    //-     img(src='../images/companies.png')
+    //-   div.hire_claimer
+    //-     p Trusted by start ups and leading companies from the sports industry 
 
-    .newsletter-box
-      h1 Get a weekly email with new jobs
-      #revue-embed
-              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
-                .revue-form-group
-                  label(for='member_email') 
-                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+    //- .newsletter-box
+    //-   h1 Get a weekly email with new jobs
+    //-   #revue-embed
+    //-           form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+    //-             .revue-form-group
+    //-               label(for='member_email') 
+    //-               input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
                 
-                .revue-form-actions
-                  input#subscribe.button(type='submit', value='Subscribe to Newsletter', name='member[subscribe]')
+    //-             .revue-form-actions
+    //-               input#subscribe.button(type='submit', value='Subscribe to Newsletter', name='member[subscribe]')
     //- h2 test
     //- each post in apidata || []
     //-   table.joblist#paidjobs
@@ -56,19 +58,24 @@ block content
     //- .advertiser_testimonials
     //-   div.hire_claimer
     //-       h1(style='color: red') We are having some database problems - we are working hard to fix the problem! 
+    div.box
+      a.button(href='/sportsjobs-remote-jobs' active) Remote Jobs 
+      a.button(href='/sportsjobs-internships') Internships
+      a.button(href='/sports-companies') Companies
+      a.button(href='https://sportekblog.webflow.io/') Blog
     h2 Recent Jobs
     each post in data || []
       table.joblist
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
-              p.location= post['location']
+              p.location(data-type=`${post['location']}`)= post['location']
             td#datecell
               p#date #{moment(post['date']).startOf('day').fromNow()}
                
@@ -88,14 +95,14 @@ block content
     h2 Web Development Jobs
     each post in paid_web || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -106,14 +113,14 @@ block content
     //- h2 Recent Jobs
     each post in data_web || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             
@@ -138,14 +145,14 @@ block content
     h2 Virtual Reality Jobs
     each post in paid_vr || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -156,14 +163,14 @@ block content
     //- h2 Recent Jobs
     each post in data_vr || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             
@@ -186,14 +193,14 @@ block content
     h2 Data Science Jobs    
     each post in paid_ds || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -203,14 +210,14 @@ block content
     //- h2 Recent Jobs
     each post in data_ds || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
               
@@ -228,14 +235,14 @@ block content
     h2 Business Development Jobs    
     each post in paid_bs || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -245,14 +252,14 @@ block content
     //- h2 Recent Jobs
     each post in data_bs || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
               
@@ -266,14 +273,14 @@ block content
     h2 Machine Learning Jobs    
     each post in paid_ml || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -283,14 +290,14 @@ block content
     //- h2 Recent Jobs
     each post in data_ml || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
              
@@ -312,14 +319,14 @@ block content
     h2 Product Management Jobs    
     each post in paid_pm || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -329,14 +336,14 @@ block content
     //- h2 Recent Jobs
     each post in data_pm || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
              
@@ -349,14 +356,14 @@ block content
     h2 Design Jobs    
     each post in paid_des || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -366,14 +373,14 @@ block content
     //- h2 Recent Jobs
     each post in data_des || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
              
@@ -395,14 +402,14 @@ block content
     h2 Marketing Jobs    
     each post in paid_mar || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -411,14 +418,14 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_mar || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
               
@@ -431,14 +438,14 @@ block content
     h2 Sales Jobs    
     each post in paid_sal || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -447,14 +454,14 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_sal || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
              
@@ -472,14 +479,14 @@ block content
     h2 People Operations    
     each post in paid_po || []
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
             td#datecell
@@ -488,14 +495,14 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_po || []
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
               p.location= post['location']
               
@@ -508,8 +515,7 @@ block content
     table.joblist#remote-jobs
     include mixins/_madeby.pug
     include mixins/_footer.pug 
-  script.
-      (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typeform", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
+ 
   script.
       new TypeIt('#example1', {
         speed: 80,
@@ -527,4 +533,5 @@ block content
         .type('Twitch as Technical Business Developer')
         .pause(500)
         .delete()
-        .type('KINDCUT as UI/UX Designer')            
+        .type('KINDCUT as UI/UX Designer')       
+  
