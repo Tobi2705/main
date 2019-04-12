@@ -1,12 +1,14 @@
 extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug
+
 block content
-  
-  navbar.navheader 
-    .logotext
-      a.logo(href='/') <span>Sportek</span> 
-      h1.logo_job jobs
-      a(href='/') 
-    ul.main-nav 
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        h2 Find tech and startup jobs in sports.
       
 
   section.job_content
@@ -123,24 +125,7 @@ block content
                     input.button#checkout-button(type='submit' value='Post Job for 29$')
       #error-message
 
-        //- .typeform-widget(data-url='https://toomai.typeform.com/to/VnpRAv', data-transparency='50', data-hide-headers='true', style='width: 100%; height: 500px;')
-        //- script.
-        //-   (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
-        //- div(style='font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;')
-        //-   | powered by 
-        //-   a(href='https://admin.typeform.com/signup?utm_campaign=VnpRAv&utm_source=typeform.com-923-Pro&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN', style='color: #999', target='_blank') Typeform    
-    //- .submissionexplainer
-    //-   div.trust
-    //-    p Trusted by the best sports companies:
-    //-    p
-    //-     img(src='../images/companies.png')
-    //-   h1 Job Post package
-    //-   div.list
-    //-    p Highlighted <br><span>job ad 🔥</span> <br>on landing page 
-    //-    p Featured on our<br><span>Twitter + Facebook 📢</span> <br>channels 
-    //-    p Reach <br><span>1000 + 🗺</span> <br> tech workers around the world 
-    //-    p My dog <br><span>Fallu 🐕</span> <br> gets his favourite food 
-    
+     
     script.
             ClassicEditor
               .create( document.querySelector('#editor1'))

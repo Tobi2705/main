@@ -1,43 +1,30 @@
 extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug
 
 block content
-  navbar.navheader 
-    .logotext
-      a.logo(href='/') <span>Sportek</span> 
-      h1.logo_job jobs
-      a(href='/') 
-    ul.main-nav 
-      li.twitter
-        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        h2 Find tech and startup jobs in sports.
       
-      li.join 
-        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
-      //- li.join 
-      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
-      li.join 
-        a.button(href='/companies') Companies
-      li.join 
-        a.button(href='/sportsjobs-collections') Collections
-      
- 
+
   section.job_content
+  
 
     .jobform
+      div.explainer__box
+        p <b> Find the best</b> tech talents for your company.
+        p#subline Sportekjobs is the first job board for the sports company with the focus on tech and start up jobs. Trusted by sports companies like 
+        div.logo__box
+          img#logos(src='../images/logoff.png')
+          img#logos(src='../images/paris.png')
+          img#logos(src='../images/flair.png')
+          
       .submissionform
-        div.trust
-          p Hey ✌️, 
-          | welcome to SportekJobs - a job board for tech and start up jobs in the sports industry. Share your job post with thouthands of job seekers who want to be part of the sports revolution.
-        
-          p#center Trusted by some of the best companies in sports:
-          div.companies__customers
-            a(href="https://www.flairfootball.com/" target="_blank")
-              img(src='../images/flair.png')
-            a(href="https://en.psg.fr/" target="_blank")
-              img(src='../images/paris.png')
-            a(href="https://foundersfactory.com/" target="_blank")
-              img(src='../images/ffactory.png')
-        h2 Job Post
-        form#jobForm(action="/addjob", method="post")             
+        form#jobForm(action="/addjob", method="post")
                     label Position
                     input(type='text' name='position')
                     label Company Name
@@ -55,7 +42,6 @@ block content
                       option(value='SportsAgency') SportsAgency
                       option(value='SportsAnalytics') SportsAnalytics
                       option(value='SportsHardware') SportsHardware
-                      
                       option(value='SportsAgency') SportsAgency
                       option(value='SportsConsulting') SportsConsulting
                       option(value='SportsSoftware') SportsSoftware
@@ -100,17 +86,37 @@ block content
                       option(value='MachineLearning') MachineLearning
                       option(value='PeopleOperations') PeopleOperations
                       option(value='Other') Other
-                    label Company Description
-                    textarea(rows='4', cols='50', id='editor1' name='copmanydescription') Enter text here...
-                    label Job Description
-                    textarea(rows='4', cols='50', id='editor2' name='description') Enter text here...
+                    div.description
+                      label Company Description
+                      textarea(rows='4', cols='50', id='editor1' name='copmanydescription') Enter text here...
+                      label Job Description
+                      textarea(rows='4', cols='50', id='editor2' name='description') Enter text here...
+                    //- .image-upload
+                    //-   label(for="file-input") Company Logo
+                    //-     img(src='https://semantic-ui.com/images/wireframe/white-image.png')
+                    //-   input(type="file" name="logo" id="file-input" accept="image/gif, image/png, image/jpeg")
                     label Expected Salary
                     input(type='text'  name='salary')
                     label Website of the company
                     input(type='text'  name='companylink')
                     label Apply Url or Email
                     input(type='text'  name='link')
-                    input#checkbox(type='checkbox', name='paid', value='true', checked='')
+                    input#checkbox(type='checkbox', name='paid', value='false', checked='')
+                    //- .jobpost__options
+                    //-   .jobbox
+                    //-     p Help your job stand out
+                    //-     input(type="checkbox" id="postoptions" name="highlighted" checked="true")
+                    //-     label(for="postoptions") Job post highlighted in yellow 
+                    //-   .jobbox
+                    //-     input(type="checkbox" id="postoptions" name="highlightedcolor")
+                    //-     label(for="postoptions") Job post highlighted in your brand color
+                    //-   .jobbox
+                    //-     input(type="checkbox" id="postoptions" name="postoptions")
+                    //-     label(for="postoptions") List job post on the front page for two weeks
+                    //-   .jobbox
+                    //-     input(type="checkbox" id="postoptions" name="postoptions" )
+                    //-     label(for="postoptions") List job post on the front page for four weeks
+
 
                     //- div.checkbox__field
                     //-     p Free Version?
@@ -119,92 +125,24 @@ block content
                     input.button#checkout-button(type='submit' value='Post Job for 29$')
       #error-message
 
-        //- .typeform-widget(data-url='https://toomai.typeform.com/to/VnpRAv', data-transparency='50', data-hide-headers='true', style='width: 100%; height: 500px;')
-        //- script.
-        //-   (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
-        //- div(style='font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;')
-        //-   | powered by 
-        //-   a(href='https://admin.typeform.com/signup?utm_campaign=VnpRAv&utm_source=typeform.com-923-Pro&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN', style='color: #999', target='_blank') Typeform    
-    //- .submissionexplainer
-    //-   div.trust
-    //-    p Trusted by the best sports companies:
-    //-    p
-    //-     img(src='../images/companies.png')
-    //-   h1 Job Post package
-    //-   div.list
-    //-    p Highlighted <br><span>job ad 🔥</span> <br>on landing page 
-    //-    p Featured on our<br><span>Twitter + Facebook 📢</span> <br>channels 
-    //-    p Reach <br><span>1000 + 🗺</span> <br> tech workers around the world 
-    //-    p My dog <br><span>Fallu 🐕</span> <br> gets his favourite food 
-    
+     
     script.
-            CKEDITOR.replace('editor1', {
-             toolbarGroups: [{
-                    "name": "basicstyles",
-                    "groups": ["basicstyles"]
-                  },
-                  {
-                    "name": "links",
-                    "groups": ["links"]
-                  },
-                  {
-                    "name": "paragraph",
-                    "groups": ["list", "blocks"]
-                  },
-                  {
-                    "name": "document",
-                    "groups": ["mode"]
-                  },
-                  {
-                    "name": "insert",
-                    "groups": ["insert"]
-                  },
-                  {
-                    "name": "styles",
-                    "groups": ["styles"]
-                  },
-                  {
-                    "name": "about",
-                    "groups": ["about"]
-                  }
-                ],
-                // Remove the redundant buttons from toolbar groups defined above.
-                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
-              });
-
-            CKEDITOR.replace('editor2', {
-             toolbarGroups: [{
-                    "name": "basicstyles",
-                    "groups": ["basicstyles"]
-                  },
-                  {
-                    "name": "links",
-                    "groups": ["links"]
-                  },
-                  {
-                    "name": "paragraph",
-                    "groups": ["list", "blocks"]
-                  },
-                  {
-                    "name": "document",
-                    "groups": ["mode"]
-                  },
-                  {
-                    "name": "insert",
-                    "groups": ["insert"]
-                  },
-                  {
-                    "name": "styles",
-                    "groups": ["styles"]
-                  },
-                  {
-                    "name": "about",
-                    "groups": ["about"]
-                  }
-                ],
-                // Remove the redundant buttons from toolbar groups defined above.
-                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
-              });
+            ClassicEditor
+              .create( document.querySelector('#editor1'))
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+            ClassicEditor
+              .create( document.querySelector('#editor2'))
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
     script(src='https://js.stripe.com/v3')
 
   #error-message
