@@ -1,30 +1,38 @@
 extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug
 
 block content
-  navbar.navheader 
-    .logotext
-      a.logo(href='/') <span>Sportek</span> 
-      h1.logo_job jobs
-      a(href='/') 
-    ul.main-nav 
-      li.twitter
-        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        h2 Find tech and startup jobs in sports.
+  //- navbar.navheader 
+  //-   .logotext
+  //-     a.logo(href='/') <span>Sportek</span> 
+  //-     h1.logo_job jobs
+  //-     a(href='/') 
+  //-   ul.main-nav 
+  //-     li.twitter
+  //-       a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
       
-      li.join 
-        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
-      li.join 
-        a.button(href='/sportsjobs-internships') Internships
-      //- li.join 
-      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
-      li.join 
-        a.button(href='/sports-companies') Companies
-      li.join 
-        a.button(href='/sportsjobs-collections') Collections
+  //-     li.join 
+  //-       a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
+  //-     li.join 
+  //-       a.button(href='/sportsjobs-internships') Internships
+  //-     //- li.join 
+  //-     //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
+  //-     li.join 
+  //-       a.button(href='/sports-companies') Companies
+  //-     li.join 
+  //-       a.button(href='/sportsjobs-collections') Collections
       
-      li.postajob 
-        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
-        a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
-      
+  //-     li.postajob 
+  //-       //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+  //-       a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+  
   section.content
  
   
@@ -132,7 +140,7 @@ block content
         //-     .clear
         //-       input#subscribe.button(type='submit', value='Subscribe to our Newsletter', name='subscribe')
    
-    
+    +_secondmenu 
     h2 Featured Jobs
     //-  img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVEhLrdVZiI1hHMfxY18Swo3lwjTZQ5ZSNFkbkgtJ2UIpTFOWCIUo04w9y4WmkGXMhWQmSzPZshTZzZU0I2MnGuFGk8T3+3beOhfeed85/OpT8zwzc85z3v//+Z9UgnTAatzFVzTgMuaiJf4peXiBYxiDNmiPabiEe8hBVpmNV/BNorIArzEyWDUj4+CLH4GPZjk8eZju2Iob2I036IVE8THUoQpXMRZl+IQ7eISP2I98PEclKpAoC3EOH9DTjXT8BEPRHx4izFTcQi0GuREXT+vHfxis4tMadtd2rHUjLvexE4eDVbI8wQ6UBquYfEY1ZgarZCnCRVwJVk1kJRrxDd3gJeuEqHRBW0yCTfAd0xEZC7sOFsxC2h3v8RSZ92Ex7B5v9Tb4Rr+wHnZfZG6jEF+Qiy2YBV/wAOz/3rCg7s1ACUbhJ1bgICJjYZfCx3QW3tDxacuwARZyNOZhAJbgNJ7BQnvAyKyBHXQTDrNVMC3gPzvc+sDhZ8L9AhyCRZ6IyAzGS1zDXkzGZngvBiKM+5vgvpfrAs7jLTqiycyHxXMWxf4x6QFb+weGuxGXzrDIxbDoxlNa7L7ohzlwTLeDHebA85Mnji3oi9bgOGxbR8i7tHLU4xRsS+t1Bolje+6DdfiNKbC7LK6Ft3O86f7OPYedLZs43mJP6g3dBb8f9uAE/HbzZyerI3sRHIx2VLPiRbqOVsHq7+kKH9WIYJVFfK5HkTn/w3irfTRevqzjIPORPIbfv96FYXAkePKN+C+ZgJN4AFvXeTMEMUml/gAaxIRz+PKjhAAAAABJRU5ErkJggg==')
 

@@ -1,5 +1,6 @@
 extends layout
-include mixins/_navbar.pug 
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug 
 
 block content
   //- +_navbar 
@@ -10,8 +11,6 @@ block content
       +_navbar 
       div.title
         h1 <strong>Be part of the sports revolution.</strong>
-        //- h2 <span>Sportekjobs</span> is the job board for the sports industry.<br> If you want to find or list tech and start up jobs in sports - this is for you!
-        //- h2 &#x1F525 New openings at <span id='example1'> </span>
         h2 Find tech and startup jobs in sports.
        
     //- div.animation
@@ -58,11 +57,7 @@ block content
     //- .advertiser_testimonials
     //-   div.hire_claimer
     //-       h1(style='color: red') We are having some database problems - we are working hard to fix the problem! 
-    div.box
-      a.button(href='/sportsjobs-remote-jobs' active) Remote Jobs 
-      a.button(href='/sportsjobs-internships') Internships
-      a.button(href='/sports-companies') Companies
-      a.button(href='https://sportekblog.webflow.io/') Blog
+    +_secondmenu
     h2 Recent Jobs
     each post in data || []
       table.joblist
