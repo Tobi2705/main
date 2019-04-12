@@ -1,47 +1,23 @@
 extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug
 
 block content
-  navbar.navheader 
-    .logotext
-      a.logo(href='/') <span>Sportek</span> 
-      h1.logo_job jobs
-      a(href='/') 
-    ul.main-nav 
-      li.twitter
-        a.twitter-follow-button(href='https://twitter.com/sportekjobs', data-show-count='false') Follow @teacherjobs_io
-      li.join 
-        a.button(href='/sportsjobs-remote-jobs') Remote Jobs 
-      li.join 
-        a.button(href='/sportsjobs-internships') Internships
-      //- li.join 
-      //-   a.button(href='https://t.me/joinchat/A9hsRBDuvCUuCe_U0othnw') Community
-      li.join 
-        a.button(href='/companies') Companies
-      li.join 
-        a.button(href='/sportsjobs-collections') Collections
-      
-      li.postajob
-        a.button(href='/hire') Post a Job
-        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
-        //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
-      
-  section.content
-    h1 Internships in the sports industry
- 
-  
-  navbar.nav
-    
-  
-  navbar.nav#index2
-    a.button#nav-items(href='/')
-      //-  img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANnSURBVEhL7ZRrU5JBGIbfX1Sf+gf9mWb60FSWjtk0TQ4opRkHz3gAXkAE5CTgiVIB5YwnMjVLToIwHrAENe/eXRGwFPvQp6aduWf3Xfa57mef3YX5N1ovT3tbUj8UFtWpV/6GCKu/UXOriGcY8RMVb2IsArcvDn8kA5cvhsDHbKl3e2N03u2Pw7ecxlwgCU94m4qMyVxlLGGJapStRTzDiGpVfMfUJyhE43SBlGek4MqemJDfybrhfiesxjCVXjFH5ypjybfwCSsu4ssGJItApJx5ZV+5g/lgAt6FFBUZX+zgIvY3A2Gtmid5rs11NBp3/1Q9fHOuk+u7eaZDuWj8yL++m+7hm3K9LdaM0xPNSJ5peop4hnlXp+Lb3DE4Y8fwJ49pX03B1Ck8iRMEtk8R3QcSB2eIZH7AnTjGRuYEwYVtdL7QDRTxZYPP2QLy3/MIbV8NJpoOpcGKJ/E+kKLw6AGQOyxgZacA/2IK8rf26w1I9un9AlzxMnA+XsAmZ0zGJPMh7oDnrUGoxRP4uvuDZu5NnsMHXo9iPXl0vQGBuLYKYDscUHBycuMLIwK3TK6hr8UGx9gKJm3L6OWbYbBFYDeFS3Cyo6oGtvk4BprNVHKpExPhDKY8cWiHgxiUTOFrlqs7ByGZT68fYKDJiFmDF273Fzpf1UBnXELPayvMHzZh9yRgdUVpxqOD0+jjm7C1e4bQUhqznhjGvAls7p3BObMBvfQDNlL5sgH3ANsbhqVFfNnAYF/F7Fb+UllmVvfAco9oanSRBrc/ksFaN4j2x/IS8JK4g3dwyQmfKsvvoLJEhskNiJuskDTbYBpfK11FEkzK0l/LIlvbCVkdeyWcrCesaw2UQ0HwzFEqlcKD5fU9+AJxrixxuKJHFHxhsBDZQVs9i7amYfS1WiicnmM1A402VDIwqH2QCfR4r5KBFcjhCycvGZDD5HVp8NCjh5inp/FVDUjN1ZryDojBoEAH7HTDrZdR4HUGwpsMHNytIAcq5W5Np+Bc5AZJ35jBtujAto7QVyrn/i0VL3W0l7faIW42QNg0gg6BBRbu9l1p0PXKWNP/buKbVu3ftxnCp3Zj+NSoDeQ1Sn/Wog8dk++rpNP4cyqlL/urpG3jOWGD9kERf94E96R3Wu733v0bIqwi9n+7qTHMTwRpE9q7ea9TAAAAAElFTkSuQmCC')
-      p &#x1F448 Back to all jobs 
-  
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        h2 Find tech and startup jobs in sports.
+        
+
 
   section.jobpostvr
     
     .content
-  
+      +_secondmenu 
+    section.content
+      h2 Internships in the sports industry
     h2 Featured Jobs
     //-  img(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVEhLrdVZiI1hHMfxY18Swo3lwjTZQ5ZSNFkbkgtJ2UIpTFOWCIUo04w9y4WmkGXMhWQmSzPZshTZzZU0I2MnGuFGk8T3+3beOhfeed85/OpT8zwzc85z3v//+Z9UgnTAatzFVzTgMuaiJf4peXiBYxiDNmiPabiEe8hBVpmNV/BNorIArzEyWDUj4+CLH4GPZjk8eZju2Iob2I036IVE8THUoQpXMRZl+IQ7eISP2I98PEclKpAoC3EOH9DTjXT8BEPRHx4izFTcQi0GuREXT+vHfxis4tMadtd2rHUjLvexE4eDVbI8wQ6UBquYfEY1ZgarZCnCRVwJVk1kJRrxDd3gJeuEqHRBW0yCTfAd0xEZC7sOFsxC2h3v8RSZ92Ex7B5v9Tb4Rr+wHnZfZG6jEF+Qiy2YBV/wAOz/3rCg7s1ACUbhJ1bgICJjYZfCx3QW3tDxacuwARZyNOZhAJbgNJ7BQnvAyKyBHXQTDrNVMC3gPzvc+sDhZ8L9AhyCRZ6IyAzGS1zDXkzGZngvBiKM+5vgvpfrAs7jLTqiycyHxXMWxf4x6QFb+weGuxGXzrDIxbDoxlNa7L7ohzlwTLeDHebA85Mnji3oi9bgOGxbR8i7tHLU4xRsS+t1Bolje+6DdfiNKbC7LK6Ft3O86f7OPYedLZs43mJP6g3dBb8f9uAE/HbzZyerI3sRHIx2VLPiRbqOVsHq7+kKH9WIYJVFfK5HkTn/w3irfTRevqzjIPORPIbfv96FYXAkePKN+C+ZgJN4AFvXeTMEMUml/gAaxIRz+PKjhAAAAABJRU5ErkJggg==')
 

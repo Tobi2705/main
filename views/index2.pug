@@ -150,16 +150,16 @@ block content
 
     each post in paid
       table.joblist#paidjobs
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
-              p.location= post['location']
+              p.location(data-type=`${post['location']}`)= post['location']
             td
               p#date #{moment(post['date']).format("MMMM Do")}
               
@@ -180,16 +180,16 @@ block content
 
     each post in data
       table.joblist.all-jobs#joblist
-          tr
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
             td
               div.tags  
                ul#tagslist
-                p= post['tags']
+                p(data-type=`${post['tags']}`)#tags= post['tags']
             td
-              p.location= post['location']
+              p.location(data-type=`${post['location']}`)= post['location']
             td
               p#date #{moment(post['date']).startOf('day').fromNow()}
             td 

@@ -620,15 +620,8 @@ tr {
   flex-direction: row;
 }
 
-.logo {
-  /* margin: 0;
-  font-size: 1.65em;
-  display: flex;
-  flex-direction: row;
-  padding-right: 6px;
-  color: palevioletred;
-  text-decoration: none; */
-  background-image: url('../images/logosk.png')
+.logo:hover {
+  opacity: 0.8;
 }
 
 
