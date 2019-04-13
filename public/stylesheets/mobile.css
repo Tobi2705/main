@@ -32,10 +32,35 @@
         flex: 1 0 auto;
         text-align: center;
     }
+    .box>a{
+        font-size: 12px;
+    }
+    .title{
+        
+        margin: 50px;
+    }
+
+    .title>h1{
+        font-size: 20px;
+    }
+    .title>h2{
+        font-size: 18px;
+    }
+  
+    .textbox{
+        text-align: justify;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
     .logo {
         font-size: 1.25em;
-        padding-right: 2px;
+        padding-left: 10px;
         padding-top: 5px;
+        
+    }
+    .logo>img{
+        width: 60%;
+        height: 40%;
     }
     .logo_job {
         padding-top: 5px;
