@@ -67,15 +67,21 @@ var postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-
   companylink: {
     type: String,
     required: true
   },
-
+  color: {
+    type: String
+  },
+  newsletter: {
+    type: Boolean
+  },
+  socialmedia: {
+    type: Boolean
+  },
   paid: {
     type: String,
-
   },
 
   slug: {

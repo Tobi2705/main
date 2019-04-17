@@ -1,12 +1,4 @@
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-
-/* Portrait */
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
-
-/* ----------- iPhone 6, 7 and 8 ----------- */
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+@media all and (max-width: 991px) {  
     body,
     nav,
     ul,
@@ -32,8 +24,18 @@
         flex: 1 0 auto;
         text-align: center;
     }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .submissionform {
+        margin: 5px;
+    }
     .box>a{
         font-size: 12px;
+    }
+    .joblist{
+        margin-bottom: 5px;
     }
     .title{
         
@@ -46,11 +48,74 @@
     .title>h2{
         font-size: 18px;
     }
+    .header {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+    }
+    
+    .textbox {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    
+    .navheader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        z-index: 0;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        margin-bottom: 16px;
+    }
+    
+    .logo > img {
+        /* No styles */
+    }
+    
+    /* Convert from ul to div */
+    .main-nav {
+        margin-left: auto;
+    }
+    
+    /* Convert from li to div */
+    .postajob {
+        /* No styles */
+    }
+    
+    .title {
+        color: #fff;
+        margin-top: 64px;
+        margin-bottom: 80px;
+        padding-left: 24px;
+        padding-left: 1.5rem;
+        padding-right: 24px;
+        padding-right: 1.5rem;
+        text-align: center;
+        font-size: 24px;
+    }
+    
+    .title > h1 {
+        /* No styles */
+    }
+    
+    .title > h2 {
+        /* No styles */
+    }
   
     .textbox{
         text-align: justify;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
     }
     .logo {
         font-size: 1.25em;
@@ -90,7 +155,13 @@
         font-weight: bold;
     }
     .header {
-        margin: 0px;
+       
+            background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+            background-repeat: no-repeat;
+            background-size: cover;
+            clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+            position: relative;
+        
     }
     .headerimage {
         background: none;
@@ -101,6 +172,535 @@
         padding-top: 5px;
         width: 100%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+    }
+    .jobpostvr {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .jobpostvr>h1 {
+        font-size: 14px;
+    }
+    .card>.cover {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .location {
+        padding-left: 30px;
+        padding-right 30px;
+    }
+    td {
+        padding-bottom: 30px;
+        padding-right: 2px;
+    }
+    .field {
+        padding: 0px;
+        border: 1px solid rgb(240, 237, 227);
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .description {
+        text-align: justify;
+    }
+    a#nav-items>img {
+        display: none;
+    }
+    a#nav-items {
+        padding-right: 7px;
+        padding-bottom: 10px;
+        font-size: 12px;
+        border: 0.1em solid #f5f5f5;
+        margin: 6px;
+    }
+    li.twitter {
+        display: none;
+    }
+    .advertiser {
+        display: none;
+    }
+    .company {
+        font-size: 14px;
+    }
+    .location {
+        font-size: 12px;
+    }
+    #date {
+        font-size: 12px;
+        float: right;
+    }
+    .info {
+        font-size: 12px;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    }
+
+@media all and (max-width: 768px) { 
+    body,
+    nav,
+    ul,
+    li,
+    a {
+        margin: 2;
+        padding: 0;
+    }
+    .navheader {
+        margin-right: 0px;
+        margin-left: 0px;
+        right: 0;
+    }
+    #subscribe {
+        padding: 8px 8px 8px 8px;
+    }
+    .submissionform {
+        margin: 5px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .box>a{
+        font-size: 12px;
+    }
+    .joblist{
+        margin-bottom: 5px;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .title{
+        
+        margin: 50px;
+    }
+
+    .title>h1{
+        font-size: 20px;
+    }
+    .title>h2{
+        font-size: 18px;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+    }
+    
+    .textbox {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    
+    .navheader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        z-index: 0;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        margin-bottom: 16px;
+    }
+    
+    .logo > img {
+        /* No styles */
+    }
+    
+    /* Convert from ul to div */
+    .main-nav {
+        margin-left: auto;
+    }
+    
+    /* Convert from li to div */
+    .postajob {
+        /* No styles */
+    }
+    
+    .title {
+        color: #fff;
+        margin-top: 64px;
+        margin-bottom: 80px;
+        padding-left: 24px;
+        padding-left: 1.5rem;
+        padding-right: 24px;
+        padding-right: 1.5rem;
+        text-align: center;
+        font-size: 24px;
+    }
+    
+    .title > h1 {
+        /* No styles */
+    }
+    
+    .title > h2 {
+        /* No styles */
+    }
+  
+    .textbox{
+        text-align: justify;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    .logo {
+        font-size: 1.25em;
+        padding-left: 10px;
+        padding-top: 5px;
+        
+    }
+    .logo>img{
+        width: 60%;
+        height: 40%;
+    }
+    .logo_job {
+        padding-top: 5px;
+        font-size: 1.25em;
+    }
+    .postajob>.button {
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        background: palevioletred;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    .textbox>h1 {
+        font-size: 24px;
+    }
+    .textbox>h2 {
+        font-size: 18px;
+    }
+    .join>.button {
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .header {
+       
+            background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+            background-repeat: no-repeat;
+            background-size: cover;
+            clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+            position: relative;
+        
+    }
+    .headerimage {
+        background: none;
+        width: 0px;
+        height: 0px;
+    }
+    .textbox {
+        padding-top: 5px;
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .cover>a.button {
+        padding: 5px 5px 5px 5px;
+    }
+    .jobpostvr {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .jobpostvr>h1 {
+        font-size: 14px;
+    }
+    .card>.cover {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .location {
+        padding-left: 30px;
+        padding-right 30px;
+    }
+    td {
+        padding-bottom: 30px;
+        padding-right: 2px;
+    }
+    .field {
+        padding: 0px;
+        border: 1px solid rgb(240, 237, 227);
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .description {
+        text-align: justify;
+    }
+    a#nav-items>img {
+        display: none;
+    }
+    a#nav-items {
+        padding-right: 7px;
+        padding-bottom: 10px;
+        font-size: 12px;
+        border: 0.1em solid #f5f5f5;
+        margin: 6px;
+    }
+    li.twitter {
+        display: none;
+    }
+    .advertiser {
+        display: none;
+    }
+    .company {
+        font-size: 14px;
+    }
+    .location {
+        font-size: 12px;
+    }
+    #date {
+        font-size: 12px;
+        float: right;
+    }
+    .info {
+        font-size: 12px;
+    }
+    #datecell {
+        display: none;
+    }
+    #tagslist>p {
+        font-size: 10px;
+    
+ }
+@media all and (max-width: 480px) { 
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .submissionform {
+        margin: 5px;
+    }
+ }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+/* ----------- iPhone 6, 7 and 8 ----------- */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
+    body,
+    nav,
+    ul,
+    li,
+    a {
+        margin: 2;
+        padding: 0;
+    }
+    .navheader {
+        margin-right: 0px;
+        margin-left: 0px;
+        right: 0;
+    }
+    #subscribe {
+        padding: 8px 8px 8px 8px;
+    }
+    .nav {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .main-nav {
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .box>a{
+        font-size: 12px;
+    }
+    .joblist{
+        margin-bottom: 5px;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .submissionform {
+        margin: 5px;
+    }
+    .title{
+        
+        margin: 50px;
+    }
+
+    .title>h1{
+        font-size: 20px;
+    }
+    .title>h2{
+        font-size: 18px;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+    }
+    
+    .textbox {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    
+    .navheader {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        z-index: 0;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        margin-bottom: 16px;
+    }
+    
+    .logo > img {
+        /* No styles */
+    }
+    
+    /* Convert from ul to div */
+    .main-nav {
+        margin-left: auto;
+    }
+    
+    /* Convert from li to div */
+    .postajob {
+        /* No styles */
+    }
+    
+    .title {
+        color: #fff;
+        margin-top: 64px;
+        margin-bottom: 80px;
+        padding-left: 24px;
+        padding-left: 1.5rem;
+        padding-right: 24px;
+        padding-right: 1.5rem;
+        text-align: center;
+        font-size: 24px;
+    }
+    
+    .title > h1 {
+        /* No styles */
+    }
+    
+    .title > h2 {
+        /* No styles */
+    }
+  
+    .textbox{
+        text-align: justify;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+    .logo {
+        font-size: 1.25em;
+        padding-left: 10px;
+        padding-top: 5px;
+        
+    }
+    .logo>img{
+        width: 60%;
+        height: 40%;
+    }
+    .logo_job {
+        padding-top: 5px;
+        font-size: 1.25em;
+    }
+    .postajob>.button {
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        background: palevioletred;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    .textbox>h1 {
+        font-size: 24px;
+    }
+    .textbox>h2 {
+        font-size: 18px;
+    }
+    .join>.button {
+        padding: 10px 10px 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .header {
+       
+            background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+            background-repeat: no-repeat;
+            background-size: cover;
+            clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+            position: relative;
+        
+    }
+    .headerimage {
+        background: none;
+        width: 0px;
+        height: 0px;
+    }
+    .textbox {
+        padding-top: 5px;
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
     }
     .nav {
         margin-right: 0px;
@@ -202,6 +802,20 @@
     #subscribe {
         padding: 8px 8px 8px 8px;
     }
+    .header {
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+        position: relative;
+    }
+    .joblist{
+        margin-bottom: 5px;
+        margin:0px!important;
+    }
+    .submissionform {
+        margin: 5px;
+    }
     .nav {
         margin-right: 0px;
         margin-left: 0px;
@@ -220,6 +834,10 @@
     .logo_job {
         padding-top: 5px;
         font-size: 1.25em;
+    }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
     }
     .postajob>.button {
         padding: 10px 10px 10px 10px;
@@ -244,9 +862,7 @@
         font-size: 12px;
         font-weight: bold;
     }
-    .header {
-        margin: 0px;
-    }
+    
     .headerimage {
         background: none;
         width: 0px;
@@ -256,6 +872,9 @@
         padding-top: 5px;
         width: 100%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
     }
     .nav {
         margin-right: 0px;
@@ -313,8 +932,14 @@
         margin-left: 10px;
     }
     .header {
-        margin: 40px;
-    }
+       
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+        position: relative;
+    
+}
     .headerimage {
         width: 320px;
         height: 220px;
@@ -381,6 +1006,13 @@
     #subscribe {
         padding: 8px 8px 8px 8px;
     }
+    .jobinformation {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .submissionform {
+        margin: 5px;
+    }
     .nav {
         margin-right: 0px;
         margin-left: 0px;
@@ -423,8 +1055,14 @@
         font-weight: bold;
     }
     .header {
-        margin: 0px;
-    }
+       
+        background: url(https://images.unsplash.com/photo-1520236351980-16fbcb68e0e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1418&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        clip-path: polygon(0 0,0 calc(100% - 16.75px),100% calc(100% - 50.25px),100% 0);
+        position: relative;
+    
+}
     .headerimage {
         background: none;
         width: 0px;
@@ -434,6 +1072,9 @@
         padding-top: 5px;
         width: 100%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
     }
     .nav {
         margin-right: 0px;
@@ -485,22 +1126,3 @@
     }
 }
 
-/* ----------- Non-Retina Screens ----------- */
-
-@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {}
-
-/* ----------- Retina Screens ----------- */
-
-@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}
-
-/* Galaxy S5 portrait and landscape */
-
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {}
-
-/* Galaxy S5 portrait */
-
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
-
-/* Galaxy S5 landscape */
-
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {}

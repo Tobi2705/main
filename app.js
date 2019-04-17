@@ -24,6 +24,59 @@ var sitemap = require('./sitemap.js');
 var _ = require('lodash');
 var app = express();
 
+//stripe
+
+const keyPublishable = "pk_test_vfjVQjaiduhHGt9OY3lUB1yz";
+const keySecret = "sk_test_ePJLtrTR2io0TGQ7W8QMGzz2";
+const stripe = require("stripe")(keySecret);
+
+
+
+app.post("/add", (req, res) => {
+  console.log(req.body);
+
+  // const newJob = new post(req.body);
+  // await newJob.save();
+  // res.redirect('/');
+
+  // let email = req.body.email;
+  // let card = req.body.stripeToken;
+  // let amount = req.body.amount;
+  // let newJob = new post(req.body);
+
+  // stripe.customers.create({
+  //   email: email,
+  //   card: card
+  // })
+  //   .then(customer =>
+  //     stripe.charges.create({
+  //       amount,
+  //       description: "Sample Charge",
+  //       currency: "usd",
+  //       customer: customer.id
+  //     }))
+  //   .then(charge => res.render("charge.pug"));
+
+  // stripe.checkout.sessions.create(
+  //   {
+  //     success_url: 'https://www.example.com/success',
+  //     cancel_url: 'https://www.example.com/cancel',
+  //     payment_method_types: ['card'],
+  //     line_items: [{
+  //       amount: 2000,
+  //       quantity: 2,
+  //       name: 'Blue banana',
+  //       currency: 'usd',
+  //       images: ['https://www.example.com/banana.png']
+  //     }]
+  //   },
+  //   { stripe_version: '2018-11-08; checkout_sessions_beta=v1' },
+  //   function (err, session) {
+  //     // asynchronously called
+  //   }
+  // );
+});
+
 
 app.locals.moment = moment;
 

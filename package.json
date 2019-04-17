@@ -25,9 +25,10 @@
     "mongoose": "^5.4.22",
     "mongoose-slug-generator": "^1.0.4",
     "morgan": "^1.9.1",
+    "nodemon": "1.18.10",
     "osmosis": "^1.1.10",
     "pug": "^2.0.0-rc.4",
-    "nodemon": "1.18.10"
+    "stripe": "^6.28.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

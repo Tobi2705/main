@@ -6,6 +6,8 @@ var post = require('../models/posts');
 require('../models/posts');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://Tobi:270582@ds223009.mlab.com:23009/sportjobs";
+const keySecret = "sk_test_ePJLtrTR2io0TGQ7W8QMGzz2";
+const stripe = require("stripe")(keySecret);
 
 exports.getJobs = (req, res) => {
 
@@ -51,7 +53,7 @@ exports.addjob = async (req, res) => {
   console.log(req.body);
   const newJob = new post(req.body);
   await newJob.save();
-  res.redirect('/');
+  res.redirect('/success');
 };
 
 // exports.companyInfo = (req, res) => {
@@ -69,7 +71,9 @@ exports.addjob = async (req, res) => {
 
 // };
 
-
+exports.form = (req, res) => {
+  res.render('form');
+};
 
 exports.hire = (req, res) => {
   res.render('hire');
@@ -91,18 +95,18 @@ exports.eSports = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'eSports'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'eSports'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -110,18 +114,18 @@ exports.eSports = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'eSports'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'eSports'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -143,18 +147,18 @@ exports.tvandstreaming = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'TVandStreaming'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'TVandStreaming'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -162,18 +166,18 @@ exports.tvandstreaming = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'TVandStreaming'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'TVandStreaming'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -195,18 +199,18 @@ exports.sportsHardware = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsHardware'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsHardware'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -214,18 +218,18 @@ exports.sportsHardware = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsHardware'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsHardware'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -247,18 +251,18 @@ exports.sportsAgency = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsAgency'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsAgency'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -266,18 +270,18 @@ exports.sportsAgency = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsAgency'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsAgency'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -299,18 +303,18 @@ exports.bicycleCompanies = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Bicycle'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Bicycle'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -318,18 +322,18 @@ exports.bicycleCompanies = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Bicycle'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Bicycle'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -351,18 +355,18 @@ exports.sportsAnalytics = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsAnalytics'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsAnalytics'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -370,18 +374,18 @@ exports.sportsAnalytics = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'SportsAnalytics'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'SportsAnalytics'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -403,18 +407,18 @@ exports.skateboardCompanies = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Skateboard'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Skateboard'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -422,18 +426,18 @@ exports.skateboardCompanies = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Skateboard'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Skateboard'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -455,18 +459,18 @@ exports.sportsCommunities = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'CommunityPlatform'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'CommunityPlatform'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -474,18 +478,18 @@ exports.sportsCommunities = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'CommunityPlatform'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'CommunityPlatform'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -506,18 +510,18 @@ exports.fitnessSoftware = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'FitnessSoftware'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'FitnessSoftware'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -525,18 +529,18 @@ exports.fitnessSoftware = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'FitnessSoftware'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'FitnessSoftware'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -558,18 +562,18 @@ exports.fantasySports = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'FantasySports'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'FantasySports'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -577,18 +581,18 @@ exports.fantasySports = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'FantasySports'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'FantasySports'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -610,18 +614,18 @@ exports.jobsinSoccer = (req, res) => {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Soccer'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Soccer'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -629,18 +633,18 @@ exports.jobsinSoccer = (req, res) => {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                areaofwork: 'Soccer'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            areaofwork: 'Soccer'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })

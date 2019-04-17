@@ -9,6 +9,11 @@ var post = require('../models/posts');
 var ApiListing = require('../models/api');
 require('../models/posts');
 
+
+
+
+
+
 var siteController = require('../controllers/siteController');
 
 
@@ -23,24 +28,24 @@ const no = ['No', 'false']
 const yes = ['Yes']
 
 router.post('/addjob', siteController.addjob);
-
+router.get('/form', siteController.form);
 //get all vr jobs to the landing page
 router.get('/', function (req, res, next) {
   async.parallel({
     apidata: function (callback) {
       ApiListing.find({
-          // $and: [{
-          //     $or: [{
-          //       tags: 'VirtualReality'
-          //     }]
-          //   },
-          //   {
-          //     $or: [{
-          //       paid: 'No'
-          //     }]
-          //   }
-          // ]
-        })
+        // $and: [{
+        //     $or: [{
+        //       tags: 'VirtualReality'
+        //     }]
+        //   },
+        //   {
+        //     $or: [{
+        //       paid: 'No'
+        //     }]
+        //   }
+        // ]
+      })
         .sort({
           "date": -1
         })
@@ -57,18 +62,18 @@ router.get('/', function (req, res, next) {
     },
     data_vr: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'VirtualReality'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'VirtualReality'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -77,18 +82,18 @@ router.get('/', function (req, res, next) {
     },
     paid_vr: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'VirtualReality'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'VirtualReality'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -96,18 +101,18 @@ router.get('/', function (req, res, next) {
     },
     data_ds: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'DataScience'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'DataScience'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -116,18 +121,18 @@ router.get('/', function (req, res, next) {
     },
     paid_ds: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'DataScience'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'DataScience'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -135,18 +140,18 @@ router.get('/', function (req, res, next) {
     },
     data_web: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: webdevelopment
-              }]
-            },
-            // {
-            //   $or: [{
-            //     position: 'Software Engineering'
-            //   }]
-            // }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: webdevelopment
+          }]
+        },
+          // {
+          //   $or: [{
+          //     position: 'Software Engineering'
+          //   }]
+          // }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -155,18 +160,18 @@ router.get('/', function (req, res, next) {
     },
     paid_web: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: webdevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: webdevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -174,18 +179,18 @@ router.get('/', function (req, res, next) {
     },
     data_ml: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: MachineLearning
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: MachineLearning
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -194,18 +199,18 @@ router.get('/', function (req, res, next) {
     },
     paid_ml: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: MachineLearning
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: MachineLearning
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -213,18 +218,18 @@ router.get('/', function (req, res, next) {
     },
     data_pm: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: ProductManagement
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: ProductManagement
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -233,18 +238,18 @@ router.get('/', function (req, res, next) {
     },
     paid_pm: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: ProductManagement
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: ProductManagement
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -252,18 +257,18 @@ router.get('/', function (req, res, next) {
     },
     data_des: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Design'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Design'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -272,18 +277,18 @@ router.get('/', function (req, res, next) {
     },
     paid_des: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Design'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Design'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -291,18 +296,18 @@ router.get('/', function (req, res, next) {
     },
     data_mar: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: Marketing
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: Marketing
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -311,18 +316,18 @@ router.get('/', function (req, res, next) {
     },
     paid_mar: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: Marketing
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: Marketing
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -330,18 +335,18 @@ router.get('/', function (req, res, next) {
     },
     data_sal: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Sales'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Sales'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -350,18 +355,18 @@ router.get('/', function (req, res, next) {
     },
     paid_sal: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Sales'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Sales'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -369,18 +374,18 @@ router.get('/', function (req, res, next) {
     },
     data_po: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'PeopleOperations'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'PeopleOperations'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -389,18 +394,18 @@ router.get('/', function (req, res, next) {
     },
     paid_po: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'PeopleOperations'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'PeopleOperations'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -408,18 +413,18 @@ router.get('/', function (req, res, next) {
     },
     data_bs: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: BusinessDevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: BusinessDevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -428,18 +433,18 @@ router.get('/', function (req, res, next) {
     },
     paid_bs: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: BusinessDevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: BusinessDevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -483,18 +488,18 @@ router.get('/sportsjobs-virtual-reality-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'VirtualReality'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'VirtualReality'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -502,18 +507,18 @@ router.get('/sportsjobs-virtual-reality-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'VirtualReality'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'VirtualReality'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -535,18 +540,18 @@ router.get('/sportsjobs-machine-learning-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'MachineLearning'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'MachineLearning'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -554,18 +559,18 @@ router.get('/sportsjobs-machine-learning-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'MachineLearning'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'MachineLearning'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -586,18 +591,18 @@ router.get('/sportsjobs-data-science-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'DataScience'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'DataScience'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -605,18 +610,18 @@ router.get('/sportsjobs-data-science-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'DataScience'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'DataScience'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -637,20 +642,20 @@ router.get('/sportsjobs-web-development-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: {
-                  $in: webdevelopment
-                }
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
+        $and: [{
+          $or: [{
+            tags: {
+              $in: webdevelopment
             }
-          ]
-        })
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -658,18 +663,18 @@ router.get('/sportsjobs-web-development-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: webdevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: webdevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -690,20 +695,20 @@ router.get('/sportsjobs-product-management-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: {
-                  $in: ProductManagement
-                }
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
+        $and: [{
+          $or: [{
+            tags: {
+              $in: ProductManagement
             }
-          ]
-        })
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -711,18 +716,18 @@ router.get('/sportsjobs-product-management-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: ProductManagement
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: ProductManagement
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -746,18 +751,18 @@ router.get('/sportsjobs-design-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Design'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Design'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -765,18 +770,18 @@ router.get('/sportsjobs-design-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Design'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Design'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -797,18 +802,18 @@ router.get('/sportsjobs-business-development-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: BusinessDevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: BusinessDevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -816,18 +821,18 @@ router.get('/sportsjobs-business-development-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: BusinessDevelopment
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: BusinessDevelopment
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -848,18 +853,18 @@ router.get('/sportsjobs-sales-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Sales'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Sales'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -867,18 +872,18 @@ router.get('/sportsjobs-sales-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: 'Sales'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: 'Sales'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -899,18 +904,18 @@ router.get('/sportsjobs-marketing-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: Marketing
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: Marketing
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -918,18 +923,18 @@ router.get('/sportsjobs-marketing-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: Marketing
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: Marketing
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -950,18 +955,18 @@ router.get('/sportsjobs-people-operations-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: PeopleOperations
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: PeopleOperations
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -969,18 +974,18 @@ router.get('/sportsjobs-people-operations-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                tags: PeopleOperations
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            tags: PeopleOperations
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -1001,20 +1006,20 @@ router.get('/sportsjobs-remote-jobs', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                location: {
-                  $regex: /Remote/
-                }
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
+        $and: [{
+          $or: [{
+            location: {
+              $regex: /Remote/
             }
-          ]
-        })
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -1022,20 +1027,20 @@ router.get('/sportsjobs-remote-jobs', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                location: {
-                  $regex: /Remote/
-                }
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
+        $and: [{
+          $or: [{
+            location: {
+              $regex: /Remote/
             }
-          ]
-        })
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -1057,27 +1062,27 @@ router.get('/sports-companies', function (req, res, next) {
   async.parallel({
     hudldata: function (callback) {
       post.aggregate(
-          [{
-            $group: {
-              _id: '$company',
-              total_listings: {
-                $sum: 1
-              },
-              descr: {
-                $addToSet: "$companydescription"
-              },
-              uniqueTags: {
-                $addToSet: "$tags"
-              },
-              link: {
-                $addToSet: "$link"
-              },
-              twitter: {
-                $addToSet: "$twitter"
-              },
-            }
-          }]
-        )
+        [{
+          $group: {
+            _id: '$company',
+            total_listings: {
+              $sum: 1
+            },
+            descr: {
+              $addToSet: "$companydescription"
+            },
+            uniqueTags: {
+              $addToSet: "$tags"
+            },
+            link: {
+              $addToSet: "$link"
+            },
+            twitter: {
+              $addToSet: "$twitter"
+            },
+          }
+        }]
+      )
         .exec(callback)
 
     },
@@ -1087,32 +1092,32 @@ router.get('/sports-companies', function (req, res, next) {
           $in: ['Hudl']
         }
       }).
-      select('tags')
+        select('tags')
         .exec(callback)
 
     },
     kinexondata: function (callback) {
       post.find({
-          company: {
-            $in: ['Kinexon']
-          }
-        })
+        company: {
+          $in: ['Kinexon']
+        }
+      })
         .exec(callback)
     },
     secondspectrumdata: function (callback) {
       post.find({
-          company: {
-            $in: ['Second Spectrum']
-          }
-        })
+        company: {
+          $in: ['Second Spectrum']
+        }
+      })
         .exec(callback)
     },
     beyondsportsdata: function (callback) {
       post.find({
-          company: {
-            $in: ['Beyond Sports']
-          }
-        })
+        company: {
+          $in: ['Beyond Sports']
+        }
+      })
         .exec(callback)
     },
     companiesdata: function (callback) {
@@ -1149,18 +1154,18 @@ router.get('/sportsjobs-internships', function (req, res, next) {
   async.parallel({
     data: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                jobtype: 'Internship'
-              }]
-            },
-            {
-              $or: [{
-                paid: false
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            jobtype: 'Internship'
+          }]
+        },
+        {
+          $or: [{
+            paid: false
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
@@ -1168,18 +1173,18 @@ router.get('/sportsjobs-internships', function (req, res, next) {
     },
     paid: function (callback) {
       post.find({
-          $and: [{
-              $or: [{
-                jobtype: 'Internship'
-              }]
-            },
-            {
-              $or: [{
-                paid: true
-              }]
-            }
-          ]
-        })
+        $and: [{
+          $or: [{
+            jobtype: 'Internship'
+          }]
+        },
+        {
+          $or: [{
+            paid: true
+          }]
+        }
+        ]
+      })
         .sort({
           "date": -1
         })
