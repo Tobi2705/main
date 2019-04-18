@@ -759,6 +759,8 @@ tr {
 
 }
 
+
+
 p#tags[data-type='Sales'] {
   /* background: #ffb3b3!important; */
   background-color: rgb(159, 204, 255) !important;
@@ -790,6 +792,7 @@ tr[data-type='VirtualReality'] {
   
   border-left: 4px solid  #00acff;
 }
+
 
 p#tags[data-type='DataScience'] {
   /* background: #ffb3b3!important; */

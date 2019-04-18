@@ -61,9 +61,10 @@ block content
     h2 Recent Jobs
     each post in data || []
       table.joblist
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
+              p 
               p.company= post['company']
             td
               div.tags  

@@ -71,7 +71,7 @@ var postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  color: {
+  bgcolor: {
     type: String
   },
   newsletter: {

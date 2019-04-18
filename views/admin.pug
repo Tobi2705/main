@@ -107,26 +107,26 @@ block content
                     label Help your job stand out
                     .jobpost__options
                       .jobbox(id="highlighted__yellow")
-                        input(type="checkbox" class="color" name="color" id="highlightcolor" value="#f5f5f5")
+                        input(type="checkbox" class="colorchoice"  name="bgcolor" id="highlightcolor" value="#ffc")
                         //- input(type="hidden" class="color" name="amount" id="myCheck" value="2900")
                         label(for="postoptions") Highlight my job post in yellow 💛 (+29$)
                       .jobbox(id="highlighted__brand")
-                        input(type="checkbox" class="color" name="color" id="brandcolor")
+                        input(type="checkbox" class="colorchoice" id="brandcolor")
                         //- input(type="hidden" class="color" name="amount" id="myCheck2" value="2900")
                         label(for="postoptions") Highlight my job post in my 🍭 brand color (+29$) 👉  
-                        input#head(type='color', name='color', value='#ffffff')
+                        input#head(type='color', class="color" name='bgcolor', value='#ffffff')
                       .jobbox
-                        input(type="checkbox" class="optional" name="newsletter" id="newsletter")
+                        input(type="checkbox" class="optional" name="newsletter" id="newsletter" value='true')
                         //- input(type="hidden" class="color" name="amount" id="myCheck2" value="3900")
                         label(for="postoptions") 4x Featured in Newsletter ✉️ over 4 weeks (+39$)
                       .jobbox
-                        input(type="checkbox" class="optional" name="socialmedia" id="socialmedia" value="39")
+                        input(type="checkbox" class="optional" name="socialmedia" id="socialmedia" value='true')
                         //- input(type="hidden" class="color" name="amount" id="myCheck2" value="3900")
                         label(for="postoptions") 4x Featured on Twitter 🐦 and related Reddit channels 📣 over 4 weeks (+39$)                   
-                      .jobbox
-                        label Total Price in $: 
-                        input#totalprice(type="text" name="total" value='')
-                    input.button#send-button(type="hidden" name="totalprice" value="")
+                      //- .jobbox
+                      //-   label Total Price in $: 
+                      //-   input#totalprice(type="text" name="total" value='')
+                    //- input.button#send-button(type="hidden" name="totalprice" value="")
                     .button__bar
                       button#checkout-button(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link') Post your job for free
                       button#checkout-button1(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $29
@@ -146,7 +146,7 @@ block content
         stripe.redirectToCheckout({
           items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
           successUrl: 'https://sportekjobs.com/success',
-          cancelUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
         })
         .then(function (result) {
           if (result.error) {
@@ -160,7 +160,7 @@ block content
         stripe.redirectToCheckout({
           items: [{sku: 'sku_Eu2qy5JI36J3l1', quantity: 1}],
           successUrl: 'https://sportekjobs.com/success',
-          cancelUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
         })
         .then(function (result) {
           if (result.error) {
@@ -174,7 +174,7 @@ block content
         stripe.redirectToCheckout({
           items: [{sku: 'sku_Eu2r3zuOF8ZRKQ', quantity: 1}],
           successUrl: 'https://sportekjobs.com/success',
-          cancelUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
         })
         .then(function (result) {
           if (result.error) {
@@ -183,23 +183,15 @@ block content
           }
         });
       });
-      var checkoutButton4 = document.getElementById('checkout-button-sku_Eu2rpKIGovuNRR');
+      var checkoutButton4 = document.getElementById('checkout-button4');
       checkoutButton4.addEventListener('click', function () {
-        // When the customer clicks on the button, redirect
-        // them to Checkout.
         stripe.redirectToCheckout({
           items: [{sku: 'sku_Eu2rpKIGovuNRR', quantity: 1}],
-
-          // Note that it is not guaranteed your customers will be redirected to this
-          // URL *100%* of the time, it's possible that they could e.g. close the
-          // tab between form submission and the redirect.
           successUrl: 'https://sportekjobs.com/success',
-          cancelUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
         })
         .then(function (result) {
           if (result.error) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer.
             var displayError = document.getElementById('error-message');
             displayError.textContent = result.error.message;
           }
@@ -207,21 +199,13 @@ block content
       });
       var checkoutButton5 = document.getElementById('checkout-button5');
       checkoutButton5.addEventListener('click', function () {
-        // When the customer clicks on the button, redirect
-        // them to Checkout.
         stripe.redirectToCheckout({
           items: [{sku: 'sku_Eu4HosWnTMEYm8', quantity: 1}],
-
-          // Note that it is not guaranteed your customers will be redirected to this
-          // URL *100%* of the time, it's possible that they could e.g. close the
-          // tab between form submission and the redirect.
-          successUrl: 'https://www.toomai.me/success',
-          cancelUrl: 'https://www.toomai.me/canceled',
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
         })
         .then(function (result) {
           if (result.error) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer.
             var displayError = document.getElementById('error-message');
             displayError.textContent = result.error.message;
           }
@@ -237,8 +221,8 @@ block content
             // Note that it is not guaranteed your customers will be redirected to this
             // URL *100%* of the time, it's possible that they could e.g. close the
             // tab between form submission and the redirect.
-            successUrl: 'https://www.toomai.me/success',
-            cancelUrl: 'https://www.toomai.me/canceled',
+            successUrl: 'https://sportekjobs.com/success',
+            cancelUrl: 'https://sportekjobs.com/canceled',
           })
           .then(function (result) {
             if (result.error) {
@@ -325,10 +309,33 @@ block content
     
     script.
       $(document).ready(function(){
-        $('.color').click(function() {
-        $('.color').not(this).prop('checked', false);
+        //- $('.colorchoice').click(function() {
+        //- $('.colorchoice').not(this).prop('checked', false);
+        //- });
+        $(function() {
+          enable_cb();
+          $("#highlightcolor").click(enable_cb);
         });
-      });
+        function enable_cb() {
+          if (this.checked) {
+             $(".color").prop("disabled", true);
+             $("#brandcolor").prop("checked", false);
+            console.log('test')
+          } else {
+            $(".color").prop("disabled", false);
+          }
+        }
+        $(function() {
+          enable_cbhighlightcolor();
+          $("#brandcolor").click(enable_cbhighlightcolor);
+
+        });
+        function enable_cbhighlightcolor() {
+             $("#highlightcolor").prop("checked", false);
+             $(".color").prop("disabled", false);
+        }
+        })
+      
       $('input:checkbox').change(function (){
       var total = 0;
       $('input:checkbox:checked').each(function(){

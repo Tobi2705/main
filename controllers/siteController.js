@@ -83,6 +83,10 @@ exports.success = (req, res) => {
   res.render('success');
 };
 
+exports.canceled = (req, res) => {
+  res.render('failure');
+};
+
 exports.admin = (req, res) => {
   res.render('admin');
 };

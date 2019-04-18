@@ -1203,6 +1203,7 @@ router.get('/sportsjobs-internships', function (req, res, next) {
 });
 router.get('/hire', siteController.hire);
 router.get('/success', siteController.success);
+router.get('/canceled', siteController.canceled);
 router.get('/admin', siteController.admin);
 router.get('/jobs-in-fantasy-sports', siteController.fantasySports)
 router.get('/jobs-in-football', siteController.jobsinSoccer)
