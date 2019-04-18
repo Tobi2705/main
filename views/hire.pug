@@ -12,6 +12,8 @@ block content
       
 
   section.job_content
+  
+
     .jobform
       div.explainer__box
         p <b> Find the best</b> tech talents for your company.
@@ -29,7 +31,6 @@ block content
                     input(type='text' name='company')
                     label Location
                     input(type='text' name='location')
-                    
                     label Twitter Handler
                     input(type='text'  name='twitter')
                     label Facebook Profile
@@ -94,36 +95,144 @@ block content
                     //-     img(src='https://semantic-ui.com/images/wireframe/white-image.png')
                     //-   input(type="file" name="logo" id="file-input" accept="image/gif, image/png, image/jpeg")
                     label Expected Salary
-                    input(type='text'  name='salary')
+                    input(type='text' name='salary')
                     label Website of the company
-                    input(type='text'  name='companylink')
+                    input(type='text' name='companylink')
                     label Apply Url or Email
-                    input(type='text'  name='link')
+                    input(type='text' name='link')
+                    //- label Company Email for sending your the bill
+                    //- input(type='text' name='email')
                     input#checkbox(type='checkbox', name='paid', value='false', checked='')
-                    //- .jobpost__options
-                    //-   .jobbox
-                    //-     p Help your job stand out
-                    //-     input(type="checkbox" id="postoptions" name="highlighted" checked="true")
-                    //-     label(for="postoptions") Job post highlighted in yellow 
-                    //-   .jobbox
-                    //-     input(type="checkbox" id="postoptions" name="highlightedcolor")
-                    //-     label(for="postoptions") Job post highlighted in your brand color
-                    //-   .jobbox
-                    //-     input(type="checkbox" id="postoptions" name="postoptions")
-                    //-     label(for="postoptions") List job post on the front page for two weeks
-                    //-   .jobbox
-                    //-     input(type="checkbox" id="postoptions" name="postoptions" )
-                    //-     label(for="postoptions") List job post on the front page for four weeks
+                    
+                    label Help your job stand out
+                    .jobpost__options
+                      .jobbox(id="highlighted__yellow")
+                        input(type="checkbox" class="colorchoice"  name="bgcolor" id="highlightcolor" value="#ffc")
+                        //- input(type="hidden" class="color" name="amount" id="myCheck" value="2900")
+                        label(for="postoptions") Highlight my job post in yellow 💛 (+29$)
+                      .jobbox(id="highlighted__brand")
+                        input(type="checkbox" class="colorchoice" id="brandcolor")
+                        //- input(type="hidden" class="color" name="amount" id="myCheck2" value="2900")
+                        label(for="postoptions") Highlight my job post in my 🍭 brand color (+29$) 👉  
+                        input#head(type='color', class="color" name='bgcolor', value='#ffffff')
+                      .jobbox
+                        input(type="checkbox" class="optional" name="newsletter" id="newsletter" value='true')
+                        //- input(type="hidden" class="color" name="amount" id="myCheck2" value="3900")
+                        label(for="postoptions") 4x Featured in Newsletter ✉️ over 4 weeks (+39$)
+                      .jobbox
+                        input(type="checkbox" class="optional" name="socialmedia" id="socialmedia" value='true')
+                        //- input(type="hidden" class="color" name="amount" id="myCheck2" value="3900")
+                        label(for="postoptions") 4x Featured on Twitter 🐦 and related Reddit channels 📣 over 4 weeks (+39$)                   
+                      //- .jobbox
+                      //-   label Total Price in $: 
+                      //-   input#totalprice(type="text" name="total" value='')
+                    //- input.button#send-button(type="hidden" name="totalprice" value="")
+                    .button__bar
+                      button#checkout-button(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link') Post your job for free
+                      button#checkout-button1(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $29
+                      button#checkout-button2(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $68
+                      button#checkout-button3(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $78
+                      button#checkout-button4(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $107
+                      button#checkout-button5(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $39
+                      button#checkout-button6(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $78
 
-
-                    //- div.checkbox__field
-                    //-     p Free Version?
-                    //-     div.checkbox
-                    //-         input(type='checkbox' name='free' value='true')    
-                    input.button#checkout-button(type='submit' value='Post Job for 29$')
       #error-message
+    
+      
+    script.
+      var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3');
+      var checkoutButton = document.getElementById('checkout-button1');
+      checkoutButton.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+     var checkoutButton2 = document.getElementById('checkout-button2');
+      checkoutButton2.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_Eu2qy5JI36J3l1', quantity: 1}],
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+      var checkoutButton3 = document.getElementById('checkout-button3');
+      checkoutButton3.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_Eu2r3zuOF8ZRKQ', quantity: 1}],
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+      var checkoutButton4 = document.getElementById('checkout-button4');
+      checkoutButton4.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_Eu2rpKIGovuNRR', quantity: 1}],
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+      var checkoutButton5 = document.getElementById('checkout-button5');
+      checkoutButton5.addEventListener('click', function () {
+        stripe.redirectToCheckout({
+          items: [{sku: 'sku_Eu4HosWnTMEYm8', quantity: 1}],
+          successUrl: 'https://sportekjobs.com/success',
+          cancelUrl: 'https://sportekjobs.com/canceled',
+        })
+        .then(function (result) {
+          if (result.error) {
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+      });
+      var checkoutButton6 = document.getElementById('checkout-button6');
+        checkoutButton6.addEventListener('click', function () {
+          // When the customer clicks on the button, redirect
+          // them to Checkout.
+          stripe.redirectToCheckout({
+            items: [{sku: 'sku_Eu4OfNe5N9Der4', quantity: 1}],
 
-     
+            // Note that it is not guaranteed your customers will be redirected to this
+            // URL *100%* of the time, it's possible that they could e.g. close the
+            // tab between form submission and the redirect.
+            successUrl: 'https://sportekjobs.com/success',
+            cancelUrl: 'https://sportekjobs.com/canceled',
+          })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+        });
     script.
             ClassicEditor
               .create( document.querySelector('#editor1'))
@@ -141,31 +250,269 @@ block content
                                 .catch( error => {
                                         console.error( error );
                                 } );
-    script(src='https://js.stripe.com/v3')
+    //- script.
+    //-     var stripe = Stripe('pk_test_vfjVQjaiduhHGt9OY3lUB1yz');
+    //-     var elements = stripe.elements();
+    //-     var style = {
+    //-         base: {
+    //-             color: '#32325d',
+    //-             lineHeight: '18px',
+    //-             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    //-             fontSmoothing: 'antialiased',
+    //-             fontSize: '16px',
+    //-             '::placeholder': {
+    //-             color: '#aab7c4'
+    //-             }
+    //-         },
+    //-         invalid: {
+    //-             color: '#fa755a',
+    //-             iconColor: '#fa755a'
+    //-         }
+    //-     };
+    //-     var card = elements.create('card', {style: style});
+    //-     card.mount('#card-element');
+    //-     card.addEventListener('change', function(event) {
+    //-         var displayError = document.getElementById('card-errors');
+    //-         if (event.error) {
+    //-           displayError.textContent = event.error.message;
+    //-         } else {
+    //-           displayError.textContent = '';
+    //-         }
+    //-     });
+    //-     var form = document.getElementById('jobForm');
+    //-     form.addEventListener('checkout-button', function(event) {
+    //-         event.preventDefault();
+    //-         stripe.createToken(card).then(function(result) {
+    //-           if (result.error) {
+    //-             // Inform the user if there was an error.
+    //-             var errorElement = document.getElementById('card-errors');
+    //-             errorElement.textContent = result.error.message;
+    //-           } else {
+    //-             // Send the token to your server.
+    //-             stripeTokenHandler(result.token);
+                
+    //-           }
+    //-         });
+    //-     });
+    //-     function stripeTokenHandler(token) {
+    //-         // Insert the token ID into the form so it gets submitted to the server
+    //-         var form = document.getElementById('jobform');
+    //-         var hiddenInput = document.createElement('input');
+    //-         hiddenInput.setAttribute('type', 'hidden');
+    //-         hiddenInput.setAttribute('name', 'stripeToken');
+    //-         hiddenInput.setAttribute('value', token.id);   
+    //-         form.appendChild(hiddenInput);
+
+    //-     // Submit the form
+    //-     form.submit();
+    //-     } 
+    
+    script.
+      $(document).ready(function(){
+        //- $('.colorchoice').click(function() {
+        //- $('.colorchoice').not(this).prop('checked', false);
+        //- });
+        $(function() {
+          enable_cb();
+          $("#highlightcolor").click(enable_cb);
+        });
+        function enable_cb() {
+          if (this.checked) {
+             $(".color").prop("disabled", true);
+             $("#brandcolor").prop("checked", false);
+            console.log('test')
+          } else {
+            $(".color").prop("disabled", false);
+          }
+        }
+        $(function() {
+          enable_cbhighlightcolor();
+          $("#brandcolor").click(enable_cbhighlightcolor);
+
+        });
+        function enable_cbhighlightcolor() {
+             $("#highlightcolor").prop("checked", false);
+             $(".color").prop("disabled", false);
+        }
+        })
+      
+      $('input:checkbox').change(function (){
+      var total = 0;
+      $('input:checkbox:checked').each(function(){
+       total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
+      });   
+      $("#totalprice").val(total);
+      });
+     
+
+      //- $('input[type=hidden]').change(function (){
+      //- var totalprice = 0;
+      //- $('[name^=amount]').each(function(){
+      //-  totalprice += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
+      //- });   
+      //- $("#totalprice").val(totalprice);
+      //- });
+      //- var sum = 0;
+      //- $('[name^=amount]').each(function() {
+      //-     sum += parseFloat($(this).val());
+      //- });
+      //- var totalprice;
+      //- $("input[type=hidden]").each(function({
+      //-   totalprice += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
+      //- }));
+      //- $("#send-button").val(totalprice);
+      //- });
+      //- var totalprice = 0;
+      //- $('input[hidden]:checkbox:checked').each(function(){
+      //-  totalprice += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
+      //- });   
   
-  #error-message
-  script.
-    var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3', {
-    betas: ['checkout_beta_4']
-    });
-    var checkoutButton = document.getElementById('checkout-button');
-    checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-    items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
-    // Note that it is not guaranteed your customers will be redirected to this
-    // URL *100%* of the time, it's possible that they could e.g. close the
-    // tab between form submission and the redirect.
-    successUrl: 'https://sportekjobs.com/success',
-    cancelUrl: 'https://sportekjobs.com/success',
-    })
-    .then(function (result) {
-    if (result.error) {
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer.
-    var displayError = document.getElementById('error-message');
-    displayError.textContent = result.error.message;
-    }
-    });
-    });
+      //- $("#send-button").val(totalprice);
+      //- });
+      //- $("#checkout-button").val(total);
+      //- });
+      //- $('#highlighted__yellow').on('click', function () {
+      //-           $('#myCheck').prop('checked', true);
+      //-       });
+      //- $('#highlighted__brand').on('click', function () {
+      //-           $('#myCheck2').prop('checked', true);
+      //-       });
+      //- $(".color").click(function(){
+      //-   console.log('test');
+      //-   if($(this).is(":checked")){
+      //-     $("#checkout-button-sku_EtldimLkT56vH1").hide();
+      //-   }
+      //- })
+      //- $(".color, .social").click(function(){
+      //-   console.log('test');
+      //-   if($(this).is(":checked")){
+      //-     $("#checkout-button-sku_EtldimLkT56vH1").show();
+      //-     $("#checkout-button-sku_Etledzl04KGMn2").hide();
+      //-   }
+      //- })
+      $("input[type=checkbox]").change(function(){
+                if($('#highlightcolor').is(':checked') && !$('#socialmedia').is(':checked') && !$('#newsletter').is(':checked')) {
+                    $("#checkout-button1").show();
+                    $("#checkout-button").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                     $("#checkout-button6").hide();
+                }
+                else if($('#highlightcolor').is(":not(:checked)") && !$('#socialmedia').is(':checked') && !$('#brandcolor').is(':checked') && !$('#newsletter').is(':checked')) {
+                    $("#checkout-button").show();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button5").hide();
+                     $("#checkout-button6").hide();
+                }
+                else if($('#highlightcolor').is(':checked') && !$('#socialmedia').is(':checked') && $('#newsletter').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button2").show();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#highlightcolor').is(':checked') && !$('#newsletter').is(':checked') && $('#socialmedia').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").show();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#highlightcolor').is(':checked') && $('#newsletter').is(':checked') && $('#socialmedia').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").show();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+                
+            });
+      $("input[type=checkbox]").change(function(){
+                if($('#brandcolor').is(':checked') && !$('#socialmedia').is(':checked') && !$('#newsletter').is(':checked') && !$('#highlightcolor').is(':checked')) {
+                    $("#checkout-button1").show();
+                    $("#checkout-button").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#brandcolor').is(':checked') && !$('#socialmedia').is(':checked') && $('#newsletter').is(':checked') && !$('#highlightcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button2").show();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#brandcolor').is(':checked') && !$('#newsletter').is(':checked') && $('#socialmedia').is(':checked') && !$('#highlightcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").show();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#brandcolor').is(':checked') && $('#newsletter').is(':checked') && $('#socialmedia').is(':checked') && !$('#highlightcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").show();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").hide();
+                }
+            });
+      $("input[type=checkbox]").change(function(){
+                if($('#newsletter').is(':checked') && !$('#socialmedia').is(':checked') && !$('#highlightcolor').is(':checked') && !$('#brandcolor').is(':checked')) {
+                    $("#checkout-button1").hide();
+                    $("#checkout-button").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").show();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#socialmedia').is(':checked') && !$('#newsletter').is(':checked') && !$('#highlightcolor').is(':checked') && !$('#brandcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button5").show();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#newsletter').is(':checked') && !$('#socialmedia').is(':checked') && !$('#highlightcolor').is(':checked') && !$('#brandcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button5").show();
+                    $("#checkout-button6").hide();
+                }
+                else if($('#newsletter').is(':checked') && $('#socialmedia').is(':checked') && !$('#highlightcolor').is(':checked') && !$('#brandcolor').is(':checked')) {
+                    $("#checkout-button").hide();
+                    $("#checkout-button1").hide();
+                    $("#checkout-button3").hide();
+                    $("#checkout-button2").hide();
+                    $("#checkout-button4").hide();
+                    $("#checkout-button5").hide();
+                    $("#checkout-button6").show();
+                }
+              
+            });
+            
