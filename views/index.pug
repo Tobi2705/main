@@ -91,7 +91,7 @@ block content
     h2 Web Development Jobs
     each post in paid_web || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, , style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -109,7 +109,7 @@ block content
     //- h2 Recent Jobs
     each post in data_web || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, , style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -141,7 +141,7 @@ block content
     h2 Virtual Reality Jobs
     each post in paid_vr || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -159,7 +159,7 @@ block content
     //- h2 Recent Jobs
     each post in data_vr || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -189,7 +189,7 @@ block content
     h2 Data Science Jobs    
     each post in paid_ds || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -206,7 +206,7 @@ block content
     //- h2 Recent Jobs
     each post in data_ds || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -231,7 +231,7 @@ block content
     h2 Business Development Jobs    
     each post in paid_bs || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -248,7 +248,7 @@ block content
     //- h2 Recent Jobs
     each post in data_bs || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -269,7 +269,7 @@ block content
     h2 Machine Learning Jobs    
     each post in paid_ml || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -286,7 +286,7 @@ block content
     //- h2 Recent Jobs
     each post in data_ml || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -315,7 +315,7 @@ block content
     h2 Product Management Jobs    
     each post in paid_pm || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -332,7 +332,7 @@ block content
     //- h2 Recent Jobs
     each post in data_pm || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -352,7 +352,7 @@ block content
     h2 Design Jobs    
     each post in paid_des || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -369,7 +369,7 @@ block content
     //- h2 Recent Jobs
     each post in data_des || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -398,7 +398,7 @@ block content
     h2 Marketing Jobs    
     each post in paid_mar || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -414,7 +414,7 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_mar || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -434,7 +434,7 @@ block content
     h2 Sales Jobs    
     each post in paid_sal || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -450,7 +450,7 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_sal || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -475,7 +475,7 @@ block content
     h2 People Operations    
     each post in paid_po || []
       table.joblist#paidjobs
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
@@ -491,7 +491,7 @@ block content
               a(href='https://sportekjobs.com/' + post['slug']).button.info More Info
     each post in data_po || []
       table.joblist.all-jobs#joblist
-          tr(data-type=`${post['tags']}`)
+          tr(data-type=`${post['tags']}`, data-location=`${post['location']}`, style=`background-color: ${post['bgcolor']}`)
             td
               p.position= post['position'] 
               p.company= post['company']
