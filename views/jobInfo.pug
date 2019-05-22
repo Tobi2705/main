@@ -1,7 +1,8 @@
 extends layout
 include mixins/_navbar.pug
 include mixins/_secondmenu.pug
-
+block head
+  title Sportstech job as #{data.position}
 block content
   div.header 
     div.textbox
@@ -13,6 +14,7 @@ block content
   section.jobinformation 
     each post in data
       .generalinfo
+       
         h1=post['company']
         p is looking for a 
         h1=post['position']

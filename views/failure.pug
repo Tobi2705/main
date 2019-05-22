@@ -1,0 +1,28 @@
+extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug 
+
+block content
+  //- +_navbar 
+        //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
+        //- a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Be part of the sports revolution.</strong>
+        h2 Find tech and startup jobs in sports.
+       
+    //- div.animation
+    //-   .headerimage
+    
+  div.jobpostvr
+  
+    .content
+    
+    section.jobinformation 
+        div.textbox__left
+            h2 Oh no something went wrong!
+            p Please send me a message on Twitter or send me an Email.
+            a.button(href='https://twitter.com/toomaime') Twitter
+            a.button(href='hi@toomai.me') Email
