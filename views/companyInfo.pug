@@ -14,7 +14,7 @@ block content
       h1= post['copmany'] 
       div.companybox
         .companydescription 
-          p= post.companydescription
+          p= post['companydescription']
         .companylinks
           p &#x1F4CD #{post.location}
           a(href=post['companylink'] target="_blank") &#x1F310 Company Website
