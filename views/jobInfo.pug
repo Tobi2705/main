@@ -1,10 +1,10 @@
-doctype html
-html(lang='en')
-  head
-    title #{data.title}
 extends layout
+block seoHeader
+  title Sportstech job as #{data.position}
+
 include mixins/_navbar.pug
 include mixins/_secondmenu.pug
+
 //- block head
 //-   title Sportstech job as #{data.position}
 block content
