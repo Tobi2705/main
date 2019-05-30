@@ -2,7 +2,7 @@ extends layout
 include mixins/_navbar.pug
 include mixins/_secondmenu.pug
 block seoHeader
-  title TV and Streaming jobs
+  title TV and Streaming sports tech jobs
 
 block content
   div.header 
@@ -27,7 +27,7 @@ block content
         //-       input#subscribe.button(type='submit', value='Subscribe to our Newsletter', name='subscribe')
    
     .advertiser
-      p Hire the best tech players for your company 
+      p Hire the best tech players for your sports tech company 
       //- a(href='https://toomai.typeform.com/to/VnpRAv' target='_blank').button Post a Job
       a.typeform-share.button(href='https://toomai.typeform.com/to/VnpRAv', data-mode='drawer_right', target='_blank') Post a Job
     .newsletter-box
@@ -39,7 +39,7 @@ block content
                 
                 .revue-form-actions
                   input#subscribe.button(type='submit', value='Subscribe to Newsletter', name='member[subscribe]')
-    h2 Jobs in Tv and Streaming companies
+    h2 Sports tech jobs in Tv and Streaming companies
     each post in paid || []
       table.joblist#paidjobs
           tr

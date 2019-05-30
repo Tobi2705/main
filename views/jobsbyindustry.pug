@@ -1,13 +1,15 @@
 extends layout
 include mixins/_navbar.pug
 include mixins/_secondmenu.pug
+block seoHeader
+  title Sports tech startups
 
 block content
   div.header 
     div.textbox
       +_navbar 
       div.title
-        h1 <strong>Be part of the sports revolution.</strong>
+        h1 <strong>Start your career in the SportsTech Industry.</strong>
         h2 Find tech and startup jobs in sports.
   section.jobpostvr
     
@@ -15,7 +17,7 @@ block content
       +_secondmenu     
     div.textbox#industrylanding
         
-    h1 Look for recent sports jobs in the sports industry
+    h1 Sports tech jobs collection
     h2 Are you looking for a specific industry? <br>Take a look at our sports jobs collections. 
         .grid
             .jobcategory
