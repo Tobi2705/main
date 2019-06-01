@@ -16,6 +16,8 @@ require('../models/posts');
 
 var siteController = require('../controllers/siteController');
 
+var locationController = require('../controllers/locationController');
+
 
 
 const webdevelopment = ['WebDevelopment', 'Applications Development', 'Software Engineering', 'Software Engineer', 'Computer Vision', 'Client Platform', 'iOS Developer'];
@@ -26,6 +28,11 @@ const PeopleOperations = ['People Operations'];
 const BusinessDevelopment = ['Content Partnerships', 'BusinessDevelopment']
 const no = ['No', 'false']
 const yes = ['Yes']
+
+router.get('/locations', locationController.getLocations);
+router.get('/locations/london', locationController.locationsLondon);
+router.get('/locations/amsterdam', locationController.locationsAmsterdam);
+router.get('/locations/berlin', locationController.locationsBerlin);
 
 router.post('/addjob', siteController.addjob);
 router.get('/form', siteController.form);
@@ -1202,6 +1209,7 @@ router.get('/sportsjobs-internships', function (req, res, next) {
   });
 });
 router.get('/hire', siteController.hire);
+
 router.get('/success', siteController.success);
 router.get('/canceled', siteController.canceled);
 router.get('/admin', siteController.admin);
@@ -1221,6 +1229,7 @@ router.get('/:slug', siteController.jobInfo);
 router.get('/sports-companies/:_id', siteController.companiesInfo);
 // router.get('/company/:_id', siteController.companyInfo);
 router.get('/', siteController.getJobs);
+
 
 
 module.exports = router;
