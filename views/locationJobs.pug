@@ -1,0 +1,62 @@
+extends layout
+include mixins/_navbar.pug
+include mixins/_secondmenu.pug
+//- block seoHeader
+//-   title Global sports tech jobs
+block content
+  div.header 
+    div.textbox
+      +_navbar 
+      div.title
+        h1 <strong>Sports tech jobs in #{location}</strong>
+        
+
+  section.jobpostvr
+    //- h2#subtitle <span>Join a sports tech company in #{location}
+    .newsletter-box
+      #revue-embed
+              form#revue-form(action='https://www.getrevue.co/profile/tobias-hikari/add_subscriber', method='post', name='revue-form', target='_blank')
+                .revue-form-group
+                  label(for='member_email') 
+                  input#member_email.field(placeholder='Your email address...', type='email', name='member[email]')
+                
+                .revue-form-actions
+                  input#subscribe.button(type='submit', value='Get new sportstech jobs', name='member[subscribe]')
+    
+    each post in paid || []
+      table.joblist#paidjobs
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            td
+              p#date #{moment(post['date']).startOf('day').fromNow()}
+               
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info Get more Info
+    //- h2 Recent Jobs
+    each post in data || []
+      table.joblist.all-jobs#joblist
+          tr
+            td
+              p.position= post['position'] 
+              p.company= post['company']
+            td
+              div.tags  
+               ul#tagslist
+                p= post['tags']
+            td
+              p.location= post['location']
+            
+            td
+               p#date #{moment(post['date']).startOf('day').fromNow()}
+            td 
+              a(href='https://sportekjobs.com/' + post['slug']).button.info Get more Info
+    a#morejobs(href='/') Back to all jobs &#x1F449
+    
