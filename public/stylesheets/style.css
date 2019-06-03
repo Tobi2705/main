@@ -1522,7 +1522,6 @@ td {
     position: absolute;
     top: 0;
     bottom: 0;
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1534,7 +1533,43 @@ td {
     color: white;
 }
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%)
+}
+
 #subtitle{
-  
   font-size: 32px;
+}
+
+.display-container {
+  position:relative; 
+  width:250px;
+  height: 150px;
+  padding:5px;
+  margin: 5px;
+}
+
+.display-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+img {width: 100%;}
+
+#industrylanding {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }

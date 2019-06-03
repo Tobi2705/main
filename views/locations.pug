@@ -10,32 +10,75 @@ block content
       div.title
         h1 <strong>Start your career in the Sports Tech Industry.</strong>
   section.jobpostvr
-    
     .content
       +_secondmenu     
-    div.textbox#industrylanding
+    div.gridview
+      div.textbox#industrylanding
         
-    h1 Discover thousands of sports tech jobs around the world.
+    h1 Discover thousands of sports tech jobs around the world
+        //- .grid
+        //-     .jobcategory
+        //-         a(href='/locations/london')
+        //-             img(src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt='Sports tech jobs london') 
+        //-             .carddetails London
+        //-     .jobcategory
+        //-         a(href='/locations/amsterdam')
+        //-             img(src='https://images.unsplash.com/photo-1534351764645-a2e5e5362c6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Sports tech jobs Amsterdam') 
+        //-             .carddetails Amsterdam
+        //-     .jobcategory
+        //-         a(href='/locations/berlin')
+        //-             img(src='https://images.unsplash.com/photo-1526994882030-731d9bbcfeec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Sports tech jobs berlin') 
+        //-             .carddetails Berlin
+        //- .grid
+        //-     .jobcategory
+        //-         a(href='/locations/london')
+        //-             img(src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt='Sports tech jobs barcelona') 
+        //-             .carddetails Barcelona
+        //-     .jobcategory
+        //-         a(href='/locations/amsterdam')
+        //-             img(src='https://images.unsplash.com/photo-1534351764645-a2e5e5362c6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Sports tech jobs new york') 
+        //-             .carddetails New York
+        //-     .jobcategory
+        //-         a(href='/locations/berlin')
+        //-             img(src='https://images.unsplash.com/photo-1526994882030-731d9bbcfeec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Sports tech jobs san francisco') 
+        //-             .carddetails San Francisco
         .grid
-            .jobcategory
+            .container
+              .display-container
                 a(href='/locations/london')
-                    img(src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt='Sports tech jobs london') 
-                    .carddetails
-                        p London  
-            .jobcategory
+                  img(src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt='Sports tech jobs london') 
+                  .display-middle
+                    p London
+            .container
+              .display-container
                 a(href='/locations/amsterdam')
-                    img(src='https://images.unsplash.com/photo-1534351764645-a2e5e5362c6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Job openings in eSports') 
-                    .carddetails
-                        p Amsterdam 
-            .jobcategory
-                a(href='/locations/berlin')
-                    img(src='https://images.unsplash.com/photo-1526994882030-731d9bbcfeec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Job openings in eSports') 
-                    .carddetails
-                        p Berlin
-            //- .jobcategory
-            //-     a(href='/sports-hardware-jobs')
-            //-         img(src='images/hardware.png' alt='Sportsjobs at Sportshardware companies')
-            //- .jobcategory
-            //-     a(href='/tv-and-streaming-jobs')
-            //-         img(src='images/streaming.png' alt='Sportsjobs at TV and Streaming companies')
-        .grid
+                  img(src='https://images.unsplash.com/photo-1505991250178-8fd684522804?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='Sports tech jobs san francisco')
+                  .display-middle
+                    p Amsterdam
+            .container
+              .display-container
+                a(href='/locations/barcelona')
+                  img(src='https://images.unsplash.com/photo-1519749590405-ea0c5456862c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='Sports tech jobs barcelona')
+                  .display-middle
+                    p Barcelona
+        .grid       
+            .container
+              .display-container
+                a(href='/locations/san-francisco')
+                  img(src='https://images.unsplash.com/photo-1422226256160-9b266e308ea6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='Sports tech jobs san francisco')
+                  .display-middle
+                    p San Francisco
+            .container
+              .display-container
+                a(href='/locations/new-york')
+                  img(src='https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='Sports tech jobs new york')
+                  .display-middle
+                    p New York
+            .container
+              .display-container
+                a(href='/locations/india')
+                  img(src='https://images.unsplash.com/photo-1513606184-73d7236f0bf4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' alt='Sports tech jobs india')
+                  .display-middle
+                    p India
+   
+

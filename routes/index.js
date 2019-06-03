@@ -29,10 +29,15 @@ const BusinessDevelopment = ['Content Partnerships', 'BusinessDevelopment']
 const no = ['No', 'false']
 const yes = ['Yes']
 
+/*location controller*/
 router.get('/locations', locationController.getLocations);
 router.get('/locations/london', locationController.locationsLondon);
 router.get('/locations/amsterdam', locationController.locationsAmsterdam);
 router.get('/locations/berlin', locationController.locationsBerlin);
+router.get('/locations/barcelona', locationController.locationsBarcelona);
+router.get('/locations/san-francisco', locationController.locationsSanFrancisco);
+router.get('/locations/india', locationController.locationsIndia);
+router.get('/locations/new-york', locationController.locationsNewYork);
 
 router.post('/addjob', siteController.addjob);
 router.get('/form', siteController.form);

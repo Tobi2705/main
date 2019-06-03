@@ -176,3 +176,223 @@ exports.locationsBerlin = (req, res) => {
         });
     });
 };
+
+exports.locationsBarcelona = (req, res) => {
+    async.parallel({
+        data: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /Barcelona/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: false
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .limit(15)
+                .exec(callback)
+
+        },
+        paid: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /Barcelona/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: true
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .exec(callback)
+        },
+    }, function (err, listings) {
+        if (err) {
+            return next(err);
+        } // Error in API usage.
+        // Successful, so render.
+        res.render('locationJobs', {
+            data: listings.data,
+            paid: listings.paid,
+            location: "Barcelona"
+        });
+    });
+};
+
+exports.locationsSanFrancisco = (req, res) => {
+    async.parallel({
+        data: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /San Francisco/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: false
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .limit(15)
+                .exec(callback)
+
+        },
+        paid: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /San Francisco/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: true
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .exec(callback)
+        },
+    }, function (err, listings) {
+        if (err) {
+            return next(err);
+        } // Error in API usage.
+        // Successful, so render.
+        res.render('locationJobs', {
+            data: listings.data,
+            paid: listings.paid,
+            location: "San Francisco"
+        });
+    });
+};
+
+exports.locationsNewYork = (req, res) => {
+    async.parallel({
+        data: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /New York/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: false
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .limit(15)
+                .exec(callback)
+
+        },
+        paid: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /New York/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: true
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .exec(callback)
+        },
+    }, function (err, listings) {
+        if (err) {
+            return next(err);
+        } // Error in API usage.
+        // Successful, so render.
+        res.render('locationJobs', {
+            data: listings.data,
+            paid: listings.paid,
+            location: "New York"
+        });
+    });
+};
+
+exports.locationsIndia = (req, res) => {
+    async.parallel({
+        data: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /India/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: false
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .limit(15)
+                .exec(callback)
+
+        },
+        paid: function (callback) {
+            post.find({
+                $and: [{
+                    $or: [{
+                        location: /India/
+                    }]
+                },
+                {
+                    $or: [{
+                        paid: true
+                    }]
+                }
+                ]
+            })
+                .sort({
+                    "date": -1
+                })
+                .exec(callback)
+        },
+    }, function (err, listings) {
+        if (err) {
+            return next(err);
+        } // Error in API usage.
+        // Successful, so render.
+        res.render('locationJobs', {
+            data: listings.data,
+            paid: listings.paid,
+            location: "India"
+        });
+    });
+};
