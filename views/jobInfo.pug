@@ -37,7 +37,7 @@ block content
       .jobdetails   
         p.location=post['location'] 
       .jobdescription
-        p.description=!post['description'] 
+        p.description!=post['description'] 
         p=post['email']
         
         a(href=post['link'], target='_blank').button.apply Apply for this job
