@@ -10,7 +10,8 @@ block content
         h1 <strong>Be part of the sports revolution.</strong>
         h2 Find tech and startup jobs in sports.
       
-
+  .test
+    button#checkout-button-sku_EY1abmwwuym9Cq(style='background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em', role='link') Checkout
   section.job_content
   
 
@@ -135,11 +136,34 @@ block content
                       button#checkout-button4(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $107
                       button#checkout-button5(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $39
                       button#checkout-button6(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $78
-
+                                      
       #error-message
-    
-      
-    script.
+  script.
+    var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3');
+    var checkoutButton = document.getElementById('checkout-button-sku_EY1abmwwuym9Cq');
+    checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+    items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
+    // Do not rely on the redirect to the successUrl for fulfilling
+    // purchases, customers may not always reach the success_url after
+    // a successful payment.
+    // Instead use one of the strategies described in
+    // https://stripe.com/docs/payments/checkout/fulfillment
+    successUrl: 'https://www.toomai.me/success',
+    cancelUrl: 'https://www.toomai.me/canceled',
+    })
+    .then(function (result) {
+    if (result.error) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer.
+    var displayError = document.getElementById('error-message');
+    displayError.textContent = result.error.message;
+    }
+    });
+    });
+  script.
       var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3');
       var checkoutButton = document.getElementById('checkout-button1');
       checkoutButton.addEventListener('click', function () {
@@ -233,7 +257,7 @@ block content
             }
           });
         });
-    script.
+  script.
             ClassicEditor
               .create( document.querySelector('#editor1'))
                                 .then( editor => {
@@ -250,64 +274,8 @@ block content
                                 .catch( error => {
                                         console.error( error );
                                 } );
-    //- script.
-    //-     var stripe = Stripe('pk_test_vfjVQjaiduhHGt9OY3lUB1yz');
-    //-     var elements = stripe.elements();
-    //-     var style = {
-    //-         base: {
-    //-             color: '#32325d',
-    //-             lineHeight: '18px',
-    //-             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    //-             fontSmoothing: 'antialiased',
-    //-             fontSize: '16px',
-    //-             '::placeholder': {
-    //-             color: '#aab7c4'
-    //-             }
-    //-         },
-    //-         invalid: {
-    //-             color: '#fa755a',
-    //-             iconColor: '#fa755a'
-    //-         }
-    //-     };
-    //-     var card = elements.create('card', {style: style});
-    //-     card.mount('#card-element');
-    //-     card.addEventListener('change', function(event) {
-    //-         var displayError = document.getElementById('card-errors');
-    //-         if (event.error) {
-    //-           displayError.textContent = event.error.message;
-    //-         } else {
-    //-           displayError.textContent = '';
-    //-         }
-    //-     });
-    //-     var form = document.getElementById('jobForm');
-    //-     form.addEventListener('checkout-button', function(event) {
-    //-         event.preventDefault();
-    //-         stripe.createToken(card).then(function(result) {
-    //-           if (result.error) {
-    //-             // Inform the user if there was an error.
-    //-             var errorElement = document.getElementById('card-errors');
-    //-             errorElement.textContent = result.error.message;
-    //-           } else {
-    //-             // Send the token to your server.
-    //-             stripeTokenHandler(result.token);
-                
-    //-           }
-    //-         });
-    //-     });
-    //-     function stripeTokenHandler(token) {
-    //-         // Insert the token ID into the form so it gets submitted to the server
-    //-         var form = document.getElementById('jobform');
-    //-         var hiddenInput = document.createElement('input');
-    //-         hiddenInput.setAttribute('type', 'hidden');
-    //-         hiddenInput.setAttribute('name', 'stripeToken');
-    //-         hiddenInput.setAttribute('value', token.id);   
-    //-         form.appendChild(hiddenInput);
-
-    //-     // Submit the form
-    //-     form.submit();
-    //-     } 
     
-    script.
+  script.
       $(document).ready(function(){
         //- $('.colorchoice').click(function() {
         //- $('.colorchoice').not(this).prop('checked', false);
