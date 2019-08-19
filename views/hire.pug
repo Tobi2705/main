@@ -10,11 +10,10 @@ block content
         h1 <strong>Be part of the sports revolution.</strong>
         h2 Find tech and startup jobs in sports.
       
-  .test
-    button#checkout-button-sku_EY1abmwwuym9Cq(style='background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em', role='link') Checkout
+  
   section.job_content
   
-
+    
     .jobform
       div.explainer__box
         p <b> Find the best</b> tech talents for your company.
@@ -23,7 +22,7 @@ block content
           img#logos(src='../images/logoff.png')
           img#logos(src='../images/paris.png')
           img#logos(src='../images/flair.png')
-          
+        button#checkout-button1 button
       .submissionform
         form#jobForm(action="/addjob", method="post")
                     label Position
@@ -108,7 +107,7 @@ block content
                     label Help your job stand out
                     .jobpost__options
                       .jobbox(id="highlighted__yellow")
-                        input(type="checkbox" class="colorchoice"  name="bgcolor" id="highlightcolor" value="#ffc")
+                        input(type="checkbox" class="colorchoice"  name="bgcolor" id="highlightcolor" value="#ffc" checked)
                         //- input(type="hidden" class="color" name="amount" id="myCheck" value="2900")
                         label(for="postoptions") Highlight my job post in yellow 💛 (+29$)
                       .jobbox(id="highlighted__brand")
@@ -129,8 +128,8 @@ block content
                       //-   input#totalprice(type="text" name="total" value='')
                     //- input.button#send-button(type="hidden" name="totalprice" value="")
                     .button__bar
-                      button#checkout-button(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link') Post your job for free
-                      button#checkout-button1(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $29
+                      //- button#checkout-button(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link') Post your job for free
+                      button#checkout-button1(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' ) Post your Job for $29
                       button#checkout-button2(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $68
                       button#checkout-button3(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $78
                       button#checkout-button4(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $107
@@ -138,31 +137,6 @@ block content
                       button#checkout-button6(style='background-color:#DB7093;color:#FFF;padding:16px 14px;border:0;border-radius:4px;font-size:1.2em; margin:2.5em;', role='link' hidden) Post your Job for $78
                                       
       #error-message
-  script.
-    var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3');
-    var checkoutButton = document.getElementById('checkout-button-sku_EY1abmwwuym9Cq');
-    checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-    items: [{sku: 'sku_EY1abmwwuym9Cq', quantity: 1}],
-    // Do not rely on the redirect to the successUrl for fulfilling
-    // purchases, customers may not always reach the success_url after
-    // a successful payment.
-    // Instead use one of the strategies described in
-    // https://stripe.com/docs/payments/checkout/fulfillment
-    successUrl: 'https://www.toomai.me/success',
-    cancelUrl: 'https://www.toomai.me/canceled',
-    })
-    .then(function (result) {
-    if (result.error) {
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer.
-    var displayError = document.getElementById('error-message');
-    displayError.textContent = result.error.message;
-    }
-    });
-    });
   script.
       var stripe = Stripe('pk_live_VDnFRKXfHjDMtZ90DeogXxs3');
       var checkoutButton = document.getElementById('checkout-button1');
@@ -274,7 +248,6 @@ block content
                                 .catch( error => {
                                         console.error( error );
                                 } );
-    
   script.
       $(document).ready(function(){
         //- $('.colorchoice').click(function() {
@@ -302,8 +275,7 @@ block content
              $("#highlightcolor").prop("checked", false);
              $(".color").prop("disabled", false);
         }
-        })
-      
+        }) 
       $('input:checkbox').change(function (){
       var total = 0;
       $('input:checkbox:checked').each(function(){
@@ -311,8 +283,6 @@ block content
       });   
       $("#totalprice").val(total);
       });
-     
-
       //- $('input[type=hidden]').change(function (){
       //- var totalprice = 0;
       //- $('[name^=amount]').each(function(){
@@ -403,8 +373,7 @@ block content
                     $("#checkout-button4").show();
                     $("#checkout-button5").hide();
                     $("#checkout-button6").hide();
-                }
-                
+                }  
             });
       $("input[type=checkbox]").change(function(){
                 if($('#brandcolor').is(':checked') && !$('#socialmedia').is(':checked') && !$('#newsletter').is(':checked') && !$('#highlightcolor').is(':checked')) {
@@ -481,6 +450,4 @@ block content
                     $("#checkout-button5").hide();
                     $("#checkout-button6").show();
                 }
-              
             });
-            
