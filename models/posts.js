@@ -59,6 +59,11 @@ var postSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  linkedin: {
+    type: String,
+    trim: true,
+  },
+
   description: {
     type: String,
     required: true
