@@ -1,6 +1,9 @@
 {
   "name": "sportekjobs",
   "version": "0.0.1",
+  "engines": {
+    "node": "12.13.0"
+  },
   "private": true,
   "scripts": {
     "devstart": "nodemon ./bin/www",
