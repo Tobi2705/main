@@ -30,7 +30,7 @@
     "morgan": "^1.9.1",
     "nodemon": "1.18.10",
     "osmosis": "^1.1.10",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "stripe": "^6.36.0"
   },
   "devDependencies": {
